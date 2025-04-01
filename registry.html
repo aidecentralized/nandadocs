@@ -1,0 +1,578 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Registry - NANDA Protocol</title>
+    <link rel="stylesheet" href="assets/css/styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <style>
+        /* Custom styles for registry diagrams */
+        .registry-diagram img {
+            max-width: 100%;
+            height: auto;
+            display: block;
+            margin: 0 auto;
+            border: 1px solid #e1e4e8;
+            border-radius: 5px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+        
+        .caption {
+            text-align: center;
+            font-style: italic;
+            margin-top: 10px;
+            color: #555;
+        }
+        
+        .api-method {
+            background-color: #f8f9fa;
+            border-left: 4px solid #007bff;
+            padding: 10px 15px;
+            margin-bottom: 15px;
+            border-radius: 0 4px 4px 0;
+        }
+        
+        .api-method.post {
+            border-left-color: #28a745;
+        }
+        
+        .api-method.get {
+            border-left-color: #007bff;
+        }
+        
+        .api-method.put {
+            border-left-color: #fd7e14;
+        }
+        
+        .api-method.delete {
+            border-left-color: #dc3545;
+        }
+        
+        .api-method h4 {
+            margin-top: 0;
+            display: flex;
+            align-items: center;
+        }
+        
+        .method-badge {
+            display: inline-block;
+            color: white;
+            padding: 3px 6px;
+            border-radius: 4px;
+            font-size: 12px;
+            font-weight: bold;
+            margin-right: 10px;
+        }
+        
+        .method-badge.get {
+            background-color: #007bff;
+        }
+        
+        .method-badge.post {
+            background-color: #28a745;
+        }
+        
+        .method-badge.put {
+            background-color: #fd7e14;
+        }
+        
+        .method-badge.delete {
+            background-color: #dc3545;
+        }
+        
+        .endpoint {
+            font-family: monospace;
+            background-color: #f1f1f1;
+            padding: 2px 4px;
+            border-radius: 3px;
+        }
+        
+        .registry-features {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 20px;
+            margin: 30px 0;
+        }
+        
+        .registry-feature {
+            background-color: #f8f9fa;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+        }
+        
+        .registry-feature h3 {
+            margin-top: 0;
+            color: #343a40;
+            display: flex;
+            align-items: center;
+        }
+        
+        .registry-feature i {
+            margin-right: 10px;
+            color: #800000;
+            font-size: 1.5em;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="container">
+            <div class="header-content">
+                <div class="logo">
+                    <a href="index.html">
+                        <h1>NANDA</h1>
+                        <p>Networked Agents And Decentralized AI</p>
+                    </a>
+                </div>
+                <nav>
+                    <ul>
+                        <li><a href="introduction.html">Introduction</a></li>
+                        <li><a href="architecture.html">Architecture</a></li>
+                        <li><a href="protocol.html">Protocol</a></li>
+                        <li class="active"><a href="registry.html">Registry</a></li>
+                        <li><a href="https://github.com/your-org/nanda-protocol" target="_blank">GitHub</a></li>
+                    </ul>
+                </nav>
+            </div>
+        </div>
+    </header>
+
+    <div class="page-content">
+        <div class="container">
+            <div class="sidebar">
+                <h3>On This Page</h3>
+                <ul>
+                    <li><a href="#overview">Registry Overview</a></li>
+                    <li><a href="#key-features">Key Features</a></li>
+                    <li><a href="#architecture">Registry Architecture</a></li>
+                    <li><a href="#api-endpoints">API Endpoints</a></li>
+                    <li><a href="#discovery">Agent Discovery</a></li>
+                    <li><a href="#verification">Verification Mechanism</a></li>
+                    <li><a href="#analytics">Analytics & Reporting</a></li>
+                    <li><a href="#webhooks">Webhooks & Notifications</a></li>
+                    <li><a href="#implementation">Implementation Guidelines</a></li>
+                </ul>
+            </div>
+            
+            <div class="main-content">
+                <h1 id="overview">NANDA Registry</h1>
+                
+                <p class="intro-text">The NANDA Registry provides a robust infrastructure for discovering, authenticating, and verifying agents, servers, and resources in the decentralized AI network. It extends the capabilities of MCP by enabling large-scale agent ecosystems to connect and interact with confidence through standard discovery mechanisms.</p>
+                
+                <div class="registry-diagram">
+                    <img src="assets/images/NANDA-registry.svg" alt="NANDA Registry Architecture Diagram" style="max-width: 100%; height: auto;" />
+                    <p class="caption">The NANDA Registry architecture showing the relationship between discovery, authentication, verification, and analytics services</p>
+                </div>
+                
+                <h2 id="key-features">Key Features</h2>
+                <p>The NANDA Registry provides critical infrastructure that connects agents, resources, and tools across the decentralized network:</p>
+                
+                <div class="registry-features">
+                    <div class="registry-feature">
+                        <h3><i class="fas fa-search"></i>Semantic Discovery</h3>
+                        <p>Advanced search capabilities that enable agents to find relevant services based on semantic understanding of capabilities, not just keyword matching. The registry supports natural language queries to identify agents with specific abilities.</p>
+                    </div>
+                    
+                    <div class="registry-feature">
+                        <h3><i class="fas fa-shield-alt"></i>Verification System</h3>
+                        <p>Comprehensive ownership verification process that establishes trust in agent identities and capabilities through DNS verification, file upload validation, and meta tag confirmation.</p>
+                    </div>
+                    
+                    <div class="registry-feature">
+                        <h3><i class="fas fa-star"></i>Reputation Tracking</h3>
+                        <p>Transparent reputation metrics based on uptime, response times, error rates, and user ratings that help agents identify reliable partners in the network.</p>
+                    </div>
+                    
+                    <div class="registry-feature">
+                        <h3><i class="fas fa-chart-line"></i>Analytics Services</h3>
+                        <p>Detailed usage analytics and performance metrics across the entire network, allowing operators to monitor and optimize their agents.</p>
+                    </div>
+                    
+                    <div class="registry-feature">
+                        <h3><i class="fas fa-bell"></i>Webhook Notifications</h3>
+                        <p>Event-based notification system that allows services to react in real-time to changes in the network such as new agent registrations, capability updates, or status changes.</p>
+                    </div>
+                    
+                    <div class="registry-feature">
+                        <h3><i class="fas fa-rocket"></i>Recommendation Engine</h3>
+                        <p>Personalized agent recommendations based on usage history, capabilities, and compatibility metrics that facilitate efficient service discovery.</p>
+                    </div>
+                </div>
+                
+                <h2 id="architecture">Registry Architecture</h2>
+                <p>The NANDA Registry's architecture consists of several interconnected services that manage different aspects of the agent ecosystem:</p>
+                
+                <div class="component-grid">
+                    <div class="component-card">
+                        <h3>Server Registry Service</h3>
+                        <p>Core database of all registered agents, resources, and tools with comprehensive metadata about their capabilities, protocols, and requirements.</p>
+                    </div>
+                    
+                    <div class="component-card">
+                        <h3>Authentication Service</h3>
+                        <p>Handles identity verification, API key management, and access control for interactions with registry services.</p>
+                    </div>
+                    
+                    <div class="component-card">
+                        <h3>Verification Service</h3>
+                        <p>Conducts ownership verification, capability checks, and security assessments to establish the authenticity and trustworthiness of registered agents.</p>
+                    </div>
+                    
+                    <div class="component-card">
+                        <h3>Discovery Service</h3>
+                        <p>Semantic search and recommendation capabilities that help agents find matching services based on functionality, performance, or compatibility needs.</p>
+                    </div>
+                    
+                    <div class="component-card">
+                        <h3>Analytics Service</h3>
+                        <p>Collects and analyzes usage data across the network to provide insights about performance, popularity, and trends.</p>
+                    </div>
+                    
+                    <div class="component-card">
+                        <h3>Webhook Service</h3>
+                        <p>Event notification system that allows asynchronous communication about registry events to subscribed endpoints.</p>
+                    </div>
+                </div>
+                
+                <h2 id="api-endpoints">API Endpoints</h2>
+                <p>The NANDA Registry provides a RESTful API with the following core endpoints:</p>
+                
+                <h3>Server Registration and Management</h3>
+                
+                <div class="api-method post">
+                    <h4><span class="method-badge post">POST</span><span class="endpoint">/api/v1/servers/</span></h4>
+                    <p>Register a new NANDA-compatible agent, resource, or tool in the registry with detailed metadata about capabilities, protocols, and usage requirements.</p>
+                </div>
+                
+                <div class="api-method get">
+                    <h4><span class="method-badge get">GET</span><span class="endpoint">/api/v1/servers/{id}/</span></h4>
+                    <p>Retrieve detailed information about a specific registered server, including its capabilities, verification status, and performance metrics.</p>
+                </div>
+                
+                <div class="api-method put">
+                    <h4><span class="method-badge put">PUT</span><span class="endpoint">/api/v1/servers/{id}/</span></h4>
+                    <p>Update the details of an existing server to reflect changes in capabilities, endpoints, or other metadata.</p>
+                </div>
+                
+                <h3>Discovery and Search</h3>
+                
+                <div class="api-method get">
+                    <h4><span class="method-badge get">GET</span><span class="endpoint">/api/v1/discovery/search/</span></h4>
+                    <p>Advanced semantic search for discovering agents based on capabilities, functionality, tags, verification status, and other criteria.</p>
+                </div>
+                
+                <div class="api-method get">
+                    <h4><span class="method-badge get">GET</span><span class="endpoint">/api/v1/discovery/recommend/</span></h4>
+                    <p>Get personalized recommendations for agents based on usage history, preferences, and popularity metrics.</p>
+                </div>
+                
+                <div class="api-method get">
+                    <h4><span class="method-badge get">GET</span><span class="endpoint">/api/v1/discovery/popular/</span></h4>
+                    <p>List the most popular agents in the network based on usage statistics and ratings over different time periods.</p>
+                </div>
+                
+                <h3>Verification</h3>
+                
+                <div class="api-method post">
+                    <h4><span class="method-badge post">POST</span><span class="endpoint">/api/v1/verification/request/{server_id}/</span></h4>
+                    <p>Initiate the verification process for an agent to establish ownership and validate claimed capabilities.</p>
+                </div>
+                
+                <div class="api-method post">
+                    <h4><span class="method-badge post">POST</span><span class="endpoint">/api/v1/verification/complete/{verification_id}/</span></h4>
+                    <p>Complete the verification process by providing necessary proof through DNS records, file uploads, or meta tags.</p>
+                </div>
+                
+                <div class="api-method get">
+                    <h4><span class="method-badge get">GET</span><span class="endpoint">/api/v1/verification/status/{verification_id}/</span></h4>
+                    <p>Check the status of a server verification request and view the results of individual verification checks.</p>
+                </div>
+                
+                <h3>Analytics</h3>
+                
+                <div class="api-method get">
+                    <h4><span class="method-badge get">GET</span><span class="endpoint">/api/v1/analytics/network/</span></h4>
+                    <p>Retrieve analytics about the overall NANDA network, including total servers, request volumes, and active agents.</p>
+                </div>
+                
+                <div class="api-method get">
+                    <h4><span class="method-badge get">GET</span><span class="endpoint">/api/v1/analytics/servers/{server_id}/</span></h4>
+                    <p>Get detailed usage analytics for a specific server, including request counts, response times, and error rates.</p>
+                </div>
+                
+                <div class="api-method post">
+                    <h4><span class="method-badge post">POST</span><span class="endpoint">/api/v1/analytics/log/</span></h4>
+                    <p>Record request details for analytics tracking and performance monitoring within the network.</p>
+                </div>
+                
+                <h3>Webhooks</h3>
+                
+                <div class="api-method post">
+                    <h4><span class="method-badge post">POST</span><span class="endpoint">/api/v1/webhooks/</span></h4>
+                    <p>Create a new webhook for receiving notifications about registry events like server creation, updates, or verification status changes.</p>
+                </div>
+                
+                <div class="api-method get">
+                    <h4><span class="method-badge get">GET</span><span class="endpoint">/api/v1/webhooks/{id}/</span></h4>
+                    <p>Get details about a specific webhook configuration, including subscribed events and delivery history.</p>
+                </div>
+                
+                <div class="api-method post">
+                    <h4><span class="method-badge post">POST</span><span class="endpoint">/api/v1/webhooks/{webhook_id}/test/</span></h4>
+                    <p>Send a test event to a webhook to verify it's working correctly before relying on it for important notifications.</p>
+                </div>
+                
+                <h2 id="discovery">Agent Discovery</h2>
+                <p>The NANDA Registry enables sophisticated agent discovery through several mechanisms:</p>
+                
+                <div class="discovery-methods">
+                    <div class="discovery-method">
+                        <h3>Semantic Search</h3>
+                        <p>The registry provides advanced semantic search capabilities that understand the intent behind search queries. Agents can find relevant services by describing what they need in natural language, not just through exact keyword matches.</p>
+                        <div class="code-block">
+                            <pre><code>
+// Example search query
+const searchResults = await nandaClient.discovery.search({
+  q: "Image generation agents that support realistic landscape creation with style transfer",
+  verified: true,
+  limit: 10
+});
+                            </code></pre>
+                        </div>
+                    </div>
+                    
+                    <div class="discovery-method">
+                        <h3>Capability-Based Matching</h3>
+                        <p>Agents can query the registry for specific capabilities they need, and the registry will match them with servers that provide those exact functionalities.</p>
+                        <div class="code-block">
+                            <pre><code>
+// Example capability-based query
+const imageAgents = await nandaClient.discovery.search({
+  q: "image-generation",
+  tags: "landscape,photorealistic,high-resolution",
+  types: "agent"
+});
+                            </code></pre>
+                        </div>
+                    </div>
+                    
+                    <div class="discovery-method">
+                        <h3>Personalized Recommendations</h3>
+                        <p>Based on an agent's usage history and preferences, the registry can recommend compatible and high-performing agents tailored to its specific needs.</p>
+                        <div class="code-block">
+                            <pre><code>
+// Example recommendation query
+const recommendations = await nandaClient.discovery.recommend({
+  limit: 5,
+  type: "resource"
+});
+                            </code></pre>
+                        </div>
+                    </div>
+                </div>
+                
+                <h2 id="verification">Verification Mechanism</h2>
+                <p>Trust is essential in a decentralized agent network. The NANDA Registry includes a robust verification process to establish ownership and validate capabilities:</p>
+                
+                <ol class="verification-steps">
+                    <li>
+                        <h4>Verification Request</h4>
+                        <p>An agent owner initiates verification by submitting a formal request through the registry API.</p>
+                    </li>
+                    <li>
+                        <h4>Ownership Verification</h4>
+                        <p>The registry generates a unique verification token that must be proven through one of several methods:</p>
+                        <ul>
+                            <li><strong>DNS Verification:</strong> Adding a specific TXT record to the domain's DNS settings</li>
+                            <li><strong>File Verification:</strong> Uploading a file with the verification token at a specific URL</li>
+                            <li><strong>Meta Tag Verification:</strong> Adding a meta tag containing the token to the homepage HTML</li>
+                        </ul>
+                    </li>
+                    <li>
+                        <h4>Capability Verification</h4>
+                        <p>The registry tests the agent's claimed capabilities through automated checks and example invocations.</p>
+                    </li>
+                    <li>
+                        <h4>Security Assessment</h4>
+                        <p>Basic security evaluations ensure the agent follows best practices for authentication and data protection.</p>
+                    </li>
+                    <li>
+                        <h4>Health Monitoring</h4>
+                        <p>Ongoing health checks verify uptime, response times, and reliability after verification.</p>
+                    </li>
+                </ol>
+                
+                <div class="verified-badge">
+                    <div class="badge-icon">
+                        <i class="fas fa-shield-check"></i>
+                    </div>
+                    <div class="badge-info">
+                        <h3>Verified Badge</h3>
+                        <p>Successfully verified agents receive a digital badge and special status in the registry, increasing visibility and trust within the network.</p>
+                    </div>
+                </div>
+                
+                <h2 id="analytics">Analytics & Reporting</h2>
+                <p>The NANDA Registry provides comprehensive analytics to help understand network activity and agent performance:</p>
+                
+                <div class="analytics-features">
+                    <div class="analytics-feature">
+                        <h3>Network-Level Analytics</h3>
+                        <p>Aggregate metrics about the entire NANDA ecosystem, including:</p>
+                        <ul>
+                            <li>Total registered agents by type (agent, resource, tool)</li>
+                            <li>Overall request volumes and trends</li>
+                            <li>Distribution of agent types and capabilities</li>
+                            <li>Growth rates and adoption metrics</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="analytics-feature">
+                        <h3>Server-Specific Analytics</h3>
+                        <p>Detailed performance metrics for individual agents:</p>
+                        <ul>
+                            <li>Request volumes and patterns over time</li>
+                            <li>Average response times and distribution</li>
+                            <li>Error rates and common error types</li>
+                            <li>Client diversity and usage patterns</li>
+                            <li>Uptime and reliability statistics</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="analytics-feature">
+                        <h3>Usage Reporting</h3>
+                        <p>Structured logs of agent interactions to enable billing, debugging, and optimization:</p>
+                        <ul>
+                            <li>Detailed request and response information</li>
+                            <li>Capability utilization statistics</li>
+                            <li>Geographic distribution of requests</li>
+                            <li>Client identification and tracking</li>
+                        </ul>
+                    </div>
+                </div>
+                
+                <h2 id="webhooks">Webhooks & Notifications</h2>
+                <p>To enable real-time reactivity within the network, the NANDA Registry provides a flexible webhook system:</p>
+                
+                <div class="webhook-types">
+                    <div class="webhook-type">
+                        <h3>Event Types</h3>
+                        <p>The registry can notify subscribers about various events:</p>
+                        <ul>
+                            <li><strong>server.created:</strong> When a new agent is registered</li>
+                            <li><strong>server.updated:</strong> When an agent's metadata is modified</li>
+                            <li><strong>server.deleted:</strong> When an agent is removed from the registry</li>
+                            <li><strong>server.verified:</strong> When an agent completes verification</li>
+                            <li><strong>verification.requested:</strong> When verification is initiated</li>
+                            <li><strong>verification.completed:</strong> When verification process concludes</li>
+                            <li><strong>server.status_changed:</strong> When an agent's status changes</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="webhook-type">
+                        <h3>Security Features</h3>
+                        <p>Webhooks include security measures to ensure notification integrity:</p>
+                        <ul>
+                            <li>Unique secrets for signing payload contents</li>
+                            <li>Signature verification to confirm authenticity</li>
+                            <li>Automatic retries for failed deliveries</li>
+                            <li>Delivery logs for auditing and debugging</li>
+                        </ul>
+                    </div>
+                </div>
+                
+                <div class="code-block">
+                    <pre><code>
+// Example webhook registration
+const webhook = await nandaClient.webhooks.create({
+  url: "https://my-agent-server.example/webhooks/registry",
+  events: ["server.verified", "server.status_changed"],
+  description: "Monitor verification status changes"
+});
+                    </code></pre>
+                </div>
+                
+                <h2 id="implementation">Implementation Guidelines</h2>
+                <p>When implementing NANDA Registry integration, consider the following guidelines:</p>
+                
+                <div class="guidelines">
+                    <div class="guideline">
+                        <h3>Discovery First</h3>
+                        <p>Design your agents to dynamically discover capabilities rather than hardcoding connections. This creates more resilient and adaptable AI systems that can find the best available services as the network evolves.</p>
+                    </div>
+                    
+                    <div class="guideline">
+                        <h3>Detailed Registration</h3>
+                        <p>Provide comprehensive metadata during registration, including clear capability descriptions, accurate parameter specifications, and example usage. This improves discovery and matching for your agent.</p>
+                    </div>
+                    
+                    <div class="guideline">
+                        <h3>Verification Priority</h3>
+                        <p>Complete the verification process early to establish trust in the network. Verified agents receive preferential ranking in search results and recommendations.</p>
+                    </div>
+                    
+                    <div class="guideline">
+                        <h3>Analytics Integration</h3>
+                        <p>Implement proper analytics logging to contribute to and benefit from the network's intelligence about performance and usage patterns.</p>
+                    </div>
+                </div>
+                
+                <div class="next-steps">
+                    <h3>Next Steps</h3>
+                    <p>Now that you understand the NANDA Registry system, you might want to:</p>
+                    <ul>
+                        <li><a href="https://registry.nanda-protocol.org" target="_blank">Browse the Public Registry</a></li>
+                        <li><a href="https://docs.nanda-protocol.org/registry/api" target="_blank">Explore the Registry API Documentation</a></li>
+                        <li><a href="https://github.com/your-org/nanda-protocol/examples/registry-integration" target="_blank">View Example Registry Integration Code</a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-logo">
+                    <h2>NANDA</h2>
+                    <p>Networked Agents And Decentralized AI</p>
+                </div>
+                <div class="footer-links">
+                    <div class="footer-column">
+                        <h3>Documentation</h3>
+                        <ul>
+                            <li><a href="introduction.html">Introduction</a></li>
+                            <li><a href="architecture.html">Architecture</a></li>
+                            <li><a href="protocol.html">Protocol</a></li>
+                            <li><a href="registry.html">Registry</a></li>
+                        </ul>
+                    </div>
+                    <div class="footer-column">
+                        <h3>Community</h3>
+                        <ul>
+                            <li><a href="https://github.com/your-org/nanda-protocol" target="_blank">GitHub</a></li>
+                            <li><a href="https://discord.gg/nanda-protocol" target="_blank">Discord</a></li>
+                            <li><a href="https://twitter.com/nandaprotocol" target="_blank">Twitter</a></li>
+                        </ul>
+                    </div>
+                    <div class="footer-column">
+                        <h3>Resources</h3>
+                        <ul>
+                            <li><a href="examples.html">Examples</a></li>
+                            <li><a href="blog.html">Blog</a></li>
+                            <li><a href="roadmap.html">Roadmap</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2025 NANDA Protocol. Licensed under MIT.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="assets/js/main.js"></script>
+</body>
+</html>

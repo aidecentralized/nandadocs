@@ -1,0 +1,284 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Introduction - NANDA Protocol</title>
+    <link rel="stylesheet" href="assets/css/styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+</head>
+<body>
+    <header>
+        <div class="container">
+            <div class="header-content">
+                <div class="logo">
+                    <a href="index.html">
+                        <h1>NANDA</h1>
+                        <p>Networked Agents And Decentralized AI</p>
+                    </a>
+                </div>
+                <nav>
+                    <ul>
+                        <li class="active"><a href="introduction.html">Introduction</a></li>
+                        <li><a href="architecture.html">Architecture</a></li>
+                        <li><a href="protocol.html">Protocol</a></li>
+                        <li><a href="registry.html">Registry</a></li>
+                        <li><a href="https://github.com/your-org/nanda-protocol" target="_blank">GitHub</a></li>
+                    </ul>
+                </nav>
+            </div>
+        </div>
+    </header>
+
+    <div class="page-content">
+        <div class="container">
+            <div class="sidebar">
+                <h3>On This Page</h3>
+                <ul>
+                    <li><a href="#introduction">Introduction</a></li>
+                    <li><a href="#what-is-nanda">What is NANDA?</a></li>
+                    <li><a href="#why-nanda">Why NANDA?</a></li>
+                    <li><a href="#key-pillars">Key Pillars</a></li>
+                    <li><a href="#mcp-relationship">Relationship with MCP</a></li>
+                    <li><a href="#use-cases">Use Cases</a></li>
+                    <!-- <li><a href="#getting-started">Getting Started</a></li> -->
+                </ul>
+            </div>
+            
+            <div class="main-content">
+                <h1 id="introduction">Introduction to NANDA</h1>
+                
+                <div class="banner">
+                    <i class="fas fa-rocket"></i>
+                    <div>
+                        <strong>NANDA 1.0 Released!</strong>
+                        <p>Check out what's new in our latest stable release.</p>
+                    </div>
+                </div>
+                
+                <h2 id="what-is-nanda">What is NANDA?</h2>
+                <p>NANDA (Networked Agents And Decentralized AI) is an open protocol that extends the <a href="https://modelcontextprotocol.io/introduction" target="_blank">Model Context Protocol (MCP)</a> from Anthropic to support large-scale, decentralized AI agent networks. While MCP provides excellent standards for individual LLM interactions with tools and resources, NANDA addresses the next evolution: enabling millions of distributed agents to discover, interact, and transact with each other securely.</p>
+                
+                <div class="info-box">
+                    <i class="fas fa-info-circle"></i>
+                    <div>
+                        <p>NANDA is designed to be backward compatible with MCP, allowing existing MCP-compliant applications to participate in the broader NANDA ecosystem with minimal changes.</p>
+                    </div>
+                </div>
+                
+                <h2 id="why-nanda">Why NANDA?</h2>
+                <p>As the agentic AI landscape expands, we are moving toward a future with potentially millions of specialized AI agents and services operating across distributed networks. This shift presents several critical challenges:</p>
+                
+                <ul>
+                    <li><strong>Discovery Challenge:</strong> How do agents find relevant services in a vast, constantly evolving network?</li>
+                    <li><strong>Commerce Challenge:</strong> How can agents transact and exchange value securely and efficiently?</li>
+                    <li><strong>Trust Challenge:</strong> How do we ensure secure authentication and maintain reliable reputation systems?</li>
+                    <li><strong>Interoperability Challenge:</strong> How do we enable seamless communication between diverse agent systems?</li>
+                </ul>
+                
+                <p>NANDA addresses these challenges by building upon MCP's solid foundation and adding the necessary infrastructure for decentralized, agent-to-agent interactions at scale.</p>
+                
+                <h2 id="key-pillars">Key Pillars of NANDA</h2>
+                <p>NANDA is built around four core pillars that enable its functionality and value:</p>
+                
+                <div class="pillar-cards">
+                    <div class="pillar-card">
+                        <h3>Discovery</h3>
+                        <p>NANDA provides robust mechanisms for agents to discover each other across distributed networks. This includes:</p>
+                        <ul>
+                            <li>Registry-based discovery for public and private networks</li>
+                            <li>Capability-based agent search and matchmaking</li>
+                            <li>Decentralized service advertising and discovery protocols</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="pillar-card">
+                        <h3>Commerce</h3>
+                        <p>NANDA enables secure, automated transactions between agents:</p>
+                        <ul>
+                            <li>Standardized service negotiation protocols</li>
+                            <li>Flexible payment and value exchange mechanisms</li>
+                            <li>Contract enforcement through verification services</li>
+                            <li>Resource allocation and optimization for multi-agent tasks</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="pillar-card">
+                        <h3>Authentication</h3>
+                        <p>NANDA provides comprehensive security features:</p>
+                        <ul>
+                            <li>Cryptographic identity verification for agents and services</li>
+                            <li>Permission and access control frameworks</li>
+                            <li>Security audit trails and compliance mechanisms</li>
+                            <li>Trust establishment protocols for first-time interactions</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="pillar-card">
+                        <h3>Reputation</h3>
+                        <p>NANDA includes systems for building and verifying trust:</p>
+                        <ul>
+                            <li>Decentralized reputation tracking</li>
+                            <li>Verifiable performance history</li>
+                            <li>Quality of service metrics and monitoring</li>
+                            <li>Incentive mechanisms for reliable service provision</li>
+                        </ul>
+                    </div>
+                </div>
+                
+                <h2 id="mcp-relationship">Relationship with Model Context Protocol</h2>
+                <p>NANDA builds upon and extends the <a href="https://modelcontextprotocol.io/introduction" target="_blank">Model Context Protocol (MCP)</a> from Anthropic:</p>
+                
+                <div class="relationship-diagram">
+                    <img src="assets/images/NANDA_mcp_relationship.svg" alt="NANDA and MCP Relationship Diagram" />
+                    <p class="caption">NANDA extends MCP to enable agent-to-agent interactions in decentralized networks</p>
+                </div>
+                
+                <p>MCP provides an excellent protocol for LLM interfaces to interact with tools and resources, but it was primarily designed for single-agent interactions. NANDA extends this foundation to support multi-agent systems where:</p>
+                
+                <ul>
+                    <li>Agents can dynamically discover other agents and services</li>
+                    <li>Agents can engage in peer-to-peer transactions and collaborations</li>
+                    <li>Trust relationships can be established and maintained across interactions</li>
+                    <li>Complex workflows can be distributed across specialized agent networks</li>
+                </ul>
+                
+                <h2 id="use-cases">Use Cases</h2>
+                <p>NANDA enables a wide range of applications that weren't possible with previous protocols:</p>
+                
+                <div class="use-case-grid">
+                    <div class="use-case">
+                        <i class="fas fa-store"></i>
+                        <h3>AI Service Marketplaces</h3>
+                        <p>Create decentralized marketplaces where specialized AI agents can offer services to other agents or humans, with built-in discovery, negotiation, and payment mechanisms.</p>
+                    </div>
+                    
+                    <div class="use-case">
+                        <i class="fas fa-brain"></i>
+                        <h3>Collaborative Problem Solving</h3>
+                        <p>Enable teams of specialized agents to work together on complex problems, dynamically organizing themselves based on capabilities and reputations.</p>
+                    </div>
+                    
+                    <div class="use-case">
+                        <i class="fas fa-shield-alt"></i>
+                        <h3>Trusted Agent Networks</h3>
+                        <p>Build private networks of verified agents with established reputation histories for sensitive enterprise applications requiring high security.</p>
+                    </div>
+                    
+                    <div class="use-case">
+                        <i class="fas fa-cogs"></i>
+                        <h3>Autonomous Agent Ecosystems</h3>
+                        <p>Create self-organizing systems of autonomous agents that can adapt to changing conditions by discovering and integrating new capabilities as needed.</p>
+                    </div>
+                </div>
+                
+                <!-- <h2 id="getting-started">Getting Started</h2>
+                <p>Ready to start building with NANDA? Here's how to get started:</p>
+                
+                <div class="code-block">
+                    <pre><code>
+// Install NANDA Client
+npm install @nanda-protocol/client
+
+// Set up a basic NANDA client
+import { NandaClient } from '@nanda-protocol/client';
+
+// Initialize the client
+const client = new NandaClient();
+
+// Connect to the NANDA registry
+await client.connect({
+  registry: "https://registry.nanda-protocol.org",
+  credentials: {
+    publicKey: "YOUR_PUBLIC_KEY",
+    privateKey: "YOUR_PRIVATE_KEY"
+  }
+});
+
+// Register your agent's capabilities
+await client.registry.registerAgent({
+  name: "MyAgent",
+  description: "A specialized agent for text analysis",
+  capabilities: ["sentiment-analysis", "entity-extraction", "summarization"],
+  endpoints: [{
+    url: "https://my-agent-service.example/api",
+    protocol: "nanda/v1"
+  }]
+});
+
+// Discover other agents with specific capabilities
+const agents = await client.registry.discoverAgents({
+  capabilities: ["image-generation"],
+  minReputation: 4.5
+});
+
+// Initiate a transaction with another agent
+const agent = agents[0];
+const session = await client.startSession(agent.id);
+const result = await session.executeTask({
+  task: "Generate an image of a futuristic city",
+  inputs: {
+    description: "A clean, utopian cityscape with flying vehicles and vertical gardens",
+    style: "photorealistic"
+  },
+  paymentToken: "payment-token-xyz"
+});
+                    </code></pre>
+                </div> -->
+                
+                <div class="next-steps">
+                    <h3>Next Steps</h3>
+                    <ul>
+                        <li><a href="architecture.html">Learn about the NANDA Architecture Stack</a></li>
+                        <li><a href="protocol.html">Explore the NANDA Protocol specification</a></li>
+                        <li><a href="registry.html">Discover the NANDA Registry system</a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-logo">
+                    <h2>NANDA</h2>
+                    <p>Networked Agents And Decentralized AI</p>
+                </div>
+                <div class="footer-links">
+                    <div class="footer-column">
+                        <h3>Documentation</h3>
+                        <ul>
+                            <li><a href="introduction.html">Introduction</a></li>
+                            <li><a href="architecture.html">Architecture</a></li>
+                            <li><a href="protocol.html">Protocol</a></li>
+                            <li><a href="registry.html">Registry</a></li>
+                        </ul>
+                    </div>
+                    <div class="footer-column">
+                        <h3>Community</h3>
+                        <ul>
+                            <li><a href="https://github.com/your-org/nanda-protocol" target="_blank">GitHub</a></li>
+                            <li><a href="https://discord.gg/nanda-protocol" target="_blank">Discord</a></li>
+                            <li><a href="https://twitter.com/nandaprotocol" target="_blank">Twitter</a></li>
+                        </ul>
+                    </div>
+                    <div class="footer-column">
+                        <h3>Resources</h3>
+                        <ul>
+                            <li><a href="examples.html">Examples</a></li>
+                            <li><a href="blog.html">Blog</a></li>
+                            <li><a href="roadmap.html">Roadmap</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2025 NANDA Protocol. Licensed under MIT.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="assets/js/main.js"></script>
+</body>
+</html>

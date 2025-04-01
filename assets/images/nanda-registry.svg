@@ -1,0 +1,177 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 800" width="100%" height="100%">
+  <!-- Background -->
+  <rect width="1200" height="800" fill="#f8f9fa" />
+  
+  <!-- Title -->
+  <text x="600" y="40" font-family="Arial, sans-serif" font-size="28" text-anchor="middle" font-weight="bold">NANDA Registry Architecture</text>
+  <text x="600" y="70" font-family="Arial, sans-serif" font-size="18" text-anchor="middle" fill="#555">Decentralized Discovery, Authentication, and Verification</text>
+  
+  <!-- Core Services Box -->
+  <rect x="200" y="120" width="800" height="280" fill="#e9ecef" rx="10" ry="10" stroke="#dee2e6" stroke-width="2" />
+  <text x="600" y="145" font-family="Arial, sans-serif" font-size="20" text-anchor="middle" font-weight="bold">NANDA Registry Core Services</text>
+  
+  <!-- Registry Service -->
+  <rect x="230" y="170" width="220" height="100" fill="#b8daff" rx="8" ry="8" />
+  <text x="340" y="200" font-family="Arial, sans-serif" font-size="16" text-anchor="middle" font-weight="bold">Server Registry Service</text>
+  <text x="340" y="225" font-family="Arial, sans-serif" font-size="12" text-anchor="middle">Catalog of agents, resources, and</text>
+  <text x="340" y="245" font-family="Arial, sans-serif" font-size="12" text-anchor="middle">tools with detailed metadata</text>
+  
+  <!-- Authentication Service -->
+  <rect x="490" y="170" width="220" height="100" fill="#c3e6cb" rx="8" ry="8" />
+  <text x="600" y="200" font-family="Arial, sans-serif" font-size="16" text-anchor="middle" font-weight="bold">Authentication Service</text>
+  <text x="600" y="225" font-family="Arial, sans-serif" font-size="12" text-anchor="middle">Identity verification and</text>
+  <text x="600" y="245" font-family="Arial, sans-serif" font-size="12" text-anchor="middle">access control management</text>
+  
+  <!-- Verification Service -->
+  <rect x="750" y="170" width="220" height="100" fill="#f8d7da" rx="8" ry="8" />
+  <text x="860" y="200" font-family="Arial, sans-serif" font-size="16" text-anchor="middle" font-weight="bold">Verification Service</text>
+  <text x="860" y="225" font-family="Arial, sans-serif" font-size="12" text-anchor="middle">Ownership validation and</text>
+  <text x="860" y="245" font-family="Arial, sans-serif" font-size="12" text-anchor="middle">capability verification</text>
+  
+  <!-- Discovery Service -->
+  <rect x="230" y="280" width="220" height="100" fill="#ffeeba" rx="8" ry="8" />
+  <text x="340" y="310" font-family="Arial, sans-serif" font-size="16" text-anchor="middle" font-weight="bold">Discovery Service</text>
+  <text x="340" y="335" font-family="Arial, sans-serif" font-size="12" text-anchor="middle">Semantic search and</text>
+  <text x="340" y="355" font-family="Arial, sans-serif" font-size="12" text-anchor="middle">recommendation engine</text>
+  
+  <!-- Analytics Service -->
+  <rect x="490" y="280" width="220" height="100" fill="#d6d8db" rx="8" ry="8" />
+  <text x="600" y="310" font-family="Arial, sans-serif" font-size="16" text-anchor="middle" font-weight="bold">Analytics Service</text>
+  <text x="600" y="335" font-family="Arial, sans-serif" font-size="12" text-anchor="middle">Usage tracking and</text>
+  <text x="600" y="355" font-family="Arial, sans-serif" font-size="12" text-anchor="middle">performance monitoring</text>
+  
+  <!-- Webhook Service -->
+  <rect x="750" y="280" width="220" height="100" fill="#bee5eb" rx="8" ry="8" />
+  <text x="860" y="310" font-family="Arial, sans-serif" font-size="16" text-anchor="middle" font-weight="bold">Webhook Service</text>
+  <text x="860" y="335" font-family="Arial, sans-serif" font-size="12" text-anchor="middle">Event notifications and</text>
+  <text x="860" y="355" font-family="Arial, sans-serif" font-size="12" text-anchor="middle">integration triggers</text>
+  
+  <!-- Database Layer -->
+  <rect x="200" y="410" width="800" height="60" fill="#343a40" rx="6" ry="6" />
+  <text x="600" y="445" font-family="Arial, sans-serif" font-size="16" text-anchor="middle" fill="white" font-weight="bold">PostgreSQL Database Layer</text>
+  
+  <!-- External Connections -->
+  <!-- Left side: MCP Servers -->
+  <rect x="50" y="230" width="100" height="220" fill="#f8d7da" rx="8" ry="8" />
+  <text x="100" y="285" font-family="Arial, sans-serif" font-size="16" text-anchor="middle" transform="rotate(-90, 100, 340)">MCP Servers</text>
+  
+  <rect x="60" y="280" width="80" height="30" fill="white" rx="4" ry="4" />
+  <text x="100" y="300" font-family="Arial, sans-serif" font-size="11" text-anchor="middle">Agent Servers</text>
+  
+  <rect x="60" y="320" width="80" height="30" fill="white" rx="4" ry="4" />
+  <text x="100" y="340" font-family="Arial, sans-serif" font-size="11" text-anchor="middle">Resource Servers</text>
+  
+  <rect x="60" y="360" width="80" height="30" fill="white" rx="4" ry="4" />
+  <text x="100" y="380" font-family="Arial, sans-serif" font-size="11" text-anchor="middle">Tool Servers</text>
+  
+  <!-- Right side: Client Applications -->
+  <rect x="1050" y="230" width="100" height="220" fill="#ffeeba" rx="8" ry="8" />
+  <text x="1100" y="285" font-family="Arial, sans-serif" font-size="16" text-anchor="middle" transform="rotate(90, 1100, 340)">Client Applications</text>
+  
+  <rect x="1060" y="280" width="80" height="30" fill="white" rx="4" ry="4" />
+  <text x="1100" y="300" font-family="Arial, sans-serif" font-size="11" text-anchor="middle">Web UI</text>
+  
+  <rect x="1060" y="320" width="80" height="30" fill="white" rx="4" ry="4" />
+  <text x="1100" y="340" font-family="Arial, sans-serif" font-size="11" text-anchor="middle">API Clients</text>
+  
+  <rect x="1060" y="360" width="80" height="30" fill="white" rx="4" ry="4" />
+  <text x="1100" y="380" font-family="Arial, sans-serif" font-size="11" text-anchor="middle">Webhook Consumers</text>
+  
+  <!-- Connection lines -->
+  <path d="M150,280 L200,220" fill="none" stroke="#6c757d" stroke-width="2" />
+  <text x="175" y="235" font-family="Arial, sans-serif" font-size="11" text-anchor="middle">Register/Verify</text>
+  
+  <path d="M150,340 L200,330" fill="none" stroke="#6c757d" stroke-width="2" />
+  <text x="175" y="325" font-family="Arial, sans-serif" font-size="11" text-anchor="middle">Provide API</text>
+  
+  <path d="M1050,280 L1000,220" fill="none" stroke="#6c757d" stroke-width="2" />
+  <text x="1025" y="235" font-family="Arial, sans-serif" font-size="11" text-anchor="middle">Discover/Connect</text>
+  
+  <path d="M1050,360 L1000,330" fill="none" stroke="#6c757d" stroke-width="2" />
+  <text x="1025" y="335" font-family="Arial, sans-serif" font-size="11" text-anchor="middle">Receive Events</text>
+  
+  <!-- Processes Section -->
+  <rect x="200" y="500" width="800" height="240" fill="#e9ecef" rx="10" ry="10" stroke="#dee2e6" stroke-width="2" />
+  <text x="600" y="525" font-family="Arial, sans-serif" font-size="20" text-anchor="middle" font-weight="bold">Key Registry Processes</text>
+  
+  <!-- Four key registry processes - Fixed layout to prevent overlap -->
+  <rect x="220" y="550" width="180" height="170" fill="#f8f9fa" rx="8" ry="8" stroke="#dee2e6" stroke-width="1" />
+  <text x="310" y="575" font-family="Arial, sans-serif" font-size="16" text-anchor="middle" font-weight="bold">Server Registration</text>
+  
+  <circle cx="240" cy="605" r="15" fill="#c3e6cb" />
+  <text x="240" y="610" font-family="Arial, sans-serif" font-size="14" text-anchor="middle" font-weight="bold">1</text>
+  <text x="265" y="605" font-family="Arial, sans-serif" font-size="10" text-anchor="start">Register server</text>
+  
+  <circle cx="240" cy="635" r="15" fill="#c3e6cb" />
+  <text x="240" y="640" font-family="Arial, sans-serif" font-size="14" text-anchor="middle" font-weight="bold">2</text>
+  <text x="265" y="635" font-family="Arial, sans-serif" font-size="10" text-anchor="start">Define capabilities</text>
+  
+  <circle cx="240" cy="665" r="15" fill="#c3e6cb" />
+  <text x="240" y="670" font-family="Arial, sans-serif" font-size="14" text-anchor="middle" font-weight="bold">3</text>
+  <text x="265" y="665" font-family="Arial, sans-serif" font-size="10" text-anchor="start">Set usage requirements</text>
+  
+  <circle cx="240" cy="695" r="15" fill="#c3e6cb" />
+  <text x="240" y="700" font-family="Arial, sans-serif" font-size="14" text-anchor="middle" font-weight="bold">4</text>
+  <text x="265" y="695" font-family="Arial, sans-serif" font-size="10" text-anchor="start">Receive unique ID</text>
+  
+  <rect x="420" y="550" width="180" height="170" fill="#f8f9fa" rx="8" ry="8" stroke="#dee2e6" stroke-width="1" />
+  <text x="510" y="575" font-family="Arial, sans-serif" font-size="16" text-anchor="middle" font-weight="bold">Verification</text>
+  
+  <circle cx="440" cy="605" r="15" fill="#f8d7da" />
+  <text x="440" y="610" font-family="Arial, sans-serif" font-size="14" text-anchor="middle" font-weight="bold">1</text>
+  <text x="465" y="605" font-family="Arial, sans-serif" font-size="10" text-anchor="start">Request verification</text>
+  
+  <circle cx="440" cy="635" r="15" fill="#f8d7da" />
+  <text x="440" y="640" font-family="Arial, sans-serif" font-size="14" text-anchor="middle" font-weight="bold">2</text>
+  <text x="465" y="635" font-family="Arial, sans-serif" font-size="10" text-anchor="start">Prove ownership</text>
+  
+  <circle cx="440" cy="665" r="15" fill="#f8d7da" />
+  <text x="440" y="670" font-family="Arial, sans-serif" font-size="14" text-anchor="middle" font-weight="bold">3</text>
+  <text x="465" y="665" font-family="Arial, sans-serif" font-size="10" text-anchor="start">Validate capabilities</text>
+  
+  <circle cx="440" cy="695" r="15" fill="#f8d7da" />
+  <text x="440" y="700" font-family="Arial, sans-serif" font-size="14" text-anchor="middle" font-weight="bold">4</text>
+  <text x="465" y="695" font-family="Arial, sans-serif" font-size="10" text-anchor="start">Receive verified badge</text>
+  
+  <rect x="620" y="550" width="180" height="170" fill="#f8f9fa" rx="8" ry="8" stroke="#dee2e6" stroke-width="1" />
+  <text x="710" y="575" font-family="Arial, sans-serif" font-size="16" text-anchor="middle" font-weight="bold">Discovery</text>
+  
+  <circle cx="640" cy="605" r="15" fill="#ffeeba" />
+  <text x="640" y="610" font-family="Arial, sans-serif" font-size="14" text-anchor="middle" font-weight="bold">1</text>
+  <text x="665" y="605" font-family="Arial, sans-serif" font-size="10" text-anchor="start">Search for capabilities</text>
+  
+  <circle cx="640" cy="635" r="15" fill="#ffeeba" />
+  <text x="640" y="640" font-family="Arial, sans-serif" font-size="14" text-anchor="middle" font-weight="bold">2</text>
+  <text x="665" y="635" font-family="Arial, sans-serif" font-size="10" text-anchor="start">Filter by type/tags</text>
+  
+  <circle cx="640" cy="665" r="15" fill="#ffeeba" />
+  <text x="640" y="670" font-family="Arial, sans-serif" font-size="14" text-anchor="middle" font-weight="bold">3</text>
+  <text x="665" y="665" font-family="Arial, sans-serif" font-size="10" text-anchor="start">Get recommendations</text>
+  
+  <circle cx="640" cy="695" r="15" fill="#ffeeba" />
+  <text x="640" y="700" font-family="Arial, sans-serif" font-size="14" text-anchor="middle" font-weight="bold">4</text>
+  <text x="665" y="695" font-family="Arial, sans-serif" font-size="10" text-anchor="start">Connect to server</text>
+  
+  <rect x="820" y="550" width="180" height="170" fill="#f8f9fa" rx="8" ry="8" stroke="#dee2e6" stroke-width="1" />
+  <text x="910" y="575" font-family="Arial, sans-serif" font-size="16" text-anchor="middle" font-weight="bold">Analytics</text>
+  
+  <circle cx="840" cy="605" r="15" fill="#d6d8db" />
+  <text x="840" y="610" font-family="Arial, sans-serif" font-size="14" text-anchor="middle" font-weight="bold">1</text>
+  <text x="865" y="605" font-family="Arial, sans-serif" font-size="10" text-anchor="start">Log API interactions</text>
+  
+  <circle cx="840" cy="635" r="15" fill="#d6d8db" />
+  <text x="840" y="640" font-family="Arial, sans-serif" font-size="14" text-anchor="middle" font-weight="bold">2</text>
+  <text x="865" y="635" font-family="Arial, sans-serif" font-size="10" text-anchor="start">Monitor performance</text>
+  
+  <circle cx="840" cy="665" r="15" fill="#d6d8db" />
+  <text x="840" y="670" font-family="Arial, sans-serif" font-size="14" text-anchor="middle" font-weight="bold">3</text>
+  <text x="865" y="665" font-family="Arial, sans-serif" font-size="10" text-anchor="start">Calculate reputation</text>
+  
+  <circle cx="840" cy="695" r="15" fill="#d6d8db" />
+  <text x="840" y="700" font-family="Arial, sans-serif" font-size="14" text-anchor="middle" font-weight="bold">4</text>
+  <text x="865" y="695" font-family="Arial, sans-serif" font-size="10" text-anchor="start">Generate insights</text>
+  
+  <!-- Legend -->
+  <rect x="200" y="760" width="800" height="30" fill="none" />
+  <text x="600" y="780" font-family="Arial, sans-serif" font-size="14" text-anchor="middle">© 2025 NANDA Protocol</text>
+</svg>
