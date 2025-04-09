@@ -1,0 +1,449 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hack - NANDA Protocol</title>
+    <link rel="stylesheet" href="assets/css/styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <style>
+        /* Custom styles for hack event page */
+        .event-card {
+            background-color: #fff;
+            border: 1px solid #e1e4e8;
+            border-radius: 6px;
+            margin-bottom: 20px;
+            padding: 20px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+        }
+        
+        .event-header {
+            margin-bottom: 15px;
+            border-bottom: 1px solid #eaecef;
+            padding-bottom: 10px;
+        }
+        
+        .event-time {
+            background-color: #800000;
+            color: white;
+            display: inline-block;
+            padding: 5px 10px;
+            border-radius: 4px;
+            margin-bottom: 10px;
+            font-weight: bold;
+        }
+        
+        .event-links {
+            background-color: #f8f9fa;
+            padding: 15px;
+            border-radius: 5px;
+            margin: 20px 0;
+        }
+        
+        .event-links h3 {
+            margin-top: 0;
+        }
+        
+        .event-links ul {
+            margin-bottom: 0;
+        }
+        
+        .timeline {
+            position: relative;
+            padding-left: 30px;
+            margin: 30px 0;
+        }
+        
+        .timeline::before {
+            content: '';
+            position: absolute;
+            left: 0;
+            top: 0;
+            bottom: 0;
+            width: 2px;
+            background-color: #800000;
+        }
+        
+        .timeline-item {
+            position: relative;
+            margin-bottom: 30px;
+        }
+        
+        .timeline-item::before {
+            content: '';
+            position: absolute;
+            left: -34px;
+            top: 0;
+            width: 10px;
+            height: 10px;
+            border-radius: 50%;
+            background-color: #800000;
+            border: 2px solid white;
+        }
+        
+        .timeline-time {
+            font-weight: bold;
+            color: #800000;
+            margin-bottom: 5px;
+        }
+        
+        .live-updates {
+            background-color: #f8fff8;
+            border-left: 4px solid #28a745;
+            padding: 15px;
+            margin: 20px 0;
+        }
+        
+        .live-updates h3 {
+            margin-top: 0;
+            color: #28a745;
+        }
+        
+        .update-item {
+            margin-bottom: 15px;
+            padding-bottom: 15px;
+            border-bottom: 1px dashed #e1e4e8;
+        }
+        
+        .update-item:last-child {
+            margin-bottom: 0;
+            padding-bottom: 0;
+            border-bottom: none;
+        }
+        
+        .update-time {
+            font-size: 0.8em;
+            color: #666;
+            margin-bottom: 5px;
+        }
+        
+        .resource-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+            gap: 20px;
+            margin: 30px 0;
+        }
+        
+        .resource-card {
+            background-color: #f8f9fa;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+            display: flex;
+            flex-direction: column;
+            height: 100%;
+        }
+        
+        .resource-card h3 {
+            margin-top: 0;
+            margin-bottom: 10px;
+            color: #343a40;
+        }
+        
+        .resource-card p {
+            flex-grow: 1;
+            margin-bottom: 15px;
+        }
+        
+        .resource-link {
+            display: inline-block;
+            padding: 8px 16px;
+            background-color: #800000;
+            color: white;
+            text-decoration: none;
+            border-radius: 4px;
+            text-align: center;
+            transition: background-color 0.2s;
+        }
+        
+        .resource-link:hover {
+            background-color: #600000;
+        }
+        
+        .community-links {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+            margin-top: 20px;
+        }
+        
+        .community-link {
+            display: flex;
+            align-items: center;
+            padding: 8px 16px;
+            background-color: #f1f1f1;
+            color: #333;
+            text-decoration: none;
+            border-radius: 4px;
+        }
+        
+        .community-link i {
+            margin-right: 8px;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="container">
+            <div class="header-content">
+                <div class="logo">
+                    <a href="index.html">
+                        <h1>NANDA</h1>
+                        <p>Networked Agents And Decentralized AI</p>
+                    </a>
+                </div>
+                <nav>
+                    <ul>
+                        <li><a href="introduction.html">Introduction</a></li>
+                        <li><a href="architecture.html">Architecture</a></li>
+                        <li><a href="protocol.html">Protocol</a></li>
+                        <li><a href="registry.html">Registry</a></li>
+                        <li><a href="sdk.html">SDK</a></li>
+                        <li class="active"><a href="hack.html">Hack</a></li>
+                        <li><a href="https://github.com/your-org/nanda-protocol" target="_blank">GitHub</a></li>
+                    </ul>
+                </nav>
+            </div>
+        </div>
+    </header>
+
+    <div class="page-content">
+        <div class="container">
+            <div class="sidebar">
+                <h3>On This Page</h3>
+                <ul>
+                    <li><a href="#overview">Event Overview</a></li>
+                    <li><a href="#schedule">Today's Schedule</a></li>
+                    <li><a href="#updates">Live Updates</a></li>
+                    <li><a href="#resources">Key Resources</a></li>
+                    <li><a href="#community">Community Links</a></li>
+                    <li><a href="#upcoming">Upcoming MIT Launch</a></li>
+                </ul>
+            </div>
+            
+            <div class="main-content">
+                <h1 id="overview">NANDA Protocol Hack Event</h1>
+                
+                <div class="event-card">
+                    <div class="event-header">
+                        <div class="event-time">
+                            <i class="fas fa-calendar-alt"></i> Wednesday, April 9th, 2025 • 8:00 PM ET
+                        </div>
+                        <h2>Tutorial + Hack: Get Your AI Project on MCP + NANDA</h2>
+                    </div>
+                    
+                    <p class="intro-text">Join us for an interactive tutorial and hack session designed to get your AI startup or project connected to MCP and NANDA protocols. This event is a precursor to our official NANDA hub launch at MIT on April 15th, where you'll be able to connect with other projects in the ecosystem.</p>
+                    
+                    <p>Our goal is ambitious but achievable: by the end of these 2 hours, you'll have your project or startup running a MCP server connected to NANDA, ready for the hub launch later this week.</p>
+                    
+                    <div class="event-description">
+                        <h3>What to Expect</h3>
+                        <ul>
+                            <li><strong>Tutorial Session:</strong> Guided walkthrough of setting up MCP clients/servers and connecting to NANDA</li>
+                            <li><strong>Hands-on Hacking:</strong> Dedicated time to implement these protocols with your own projects</li>
+                            <li><strong>Expert Support:</strong> Our team will be available to help troubleshoot and answer questions</li>
+                            <li><strong>Community Building:</strong> Connect with fellow builders in the AI agent ecosystem</li>
+                        </ul>
+                    </div>
+                </div>
+                
+                <div class="event-links">
+                    <h3>Quick Links</h3>
+                    <ul>
+                        <li><a href="protocol.html">NANDA Protocol Specification</a></li>
+                        <li><a href="registry.html">NANDA Registry Documentation</a></li>
+                        <li><a href="tutorial.html">Step-by-Step Tutorial</a></li>
+                        <li><a href="https://github.com/modelcontextprotocol" target="_blank">MCP GitHub Repository</a></li>
+                    </ul>
+                </div>
+                
+                <h2 id="schedule">Today's Schedule</h2>
+                
+                <div class="timeline">
+                    <div class="timeline-item">
+                        <div class="timeline-time">8:00 PM ET</div>
+                        <div class="timeline-content">
+                            <h3>Welcome & Introduction</h3>
+                            <p>Overview of NANDA Protocol and its role in the Internet of AI Agents ecosystem. Introduction to the MIT Program on Decentralized AI.</p>
+                        </div>
+                    </div>
+                    
+                    <div class="timeline-item">
+                        <div class="timeline-time">8:15 PM ET</div>
+                        <div class="timeline-content">
+                            <h3>MCP Tutorial</h3>
+                            <p>Practical walkthrough of setting up your first Model Context Protocol client and server. We'll cover the basics of the protocol and demonstrate how to implement it with just a few lines of code.</p>
+                        </div>
+                    </div>
+                    
+                    <div class="timeline-item">
+                        <div class="timeline-time">8:45 PM ET</div>
+                        <div class="timeline-content">
+                            <h3>NANDA Integration</h3>
+                            <p>Learn how to connect your MCP implementation to the NANDA registry, enabling discovery, verification, and communication with other agents in the network.</p>
+                        </div>
+                    </div>
+                    
+                    <div class="timeline-item">
+                        <div class="timeline-time">9:15 PM ET</div>
+                        <div class="timeline-content">
+                            <h3>Hands-on Hacking</h3>
+                            <p>Dedicated time to implement what you've learned with your own projects. Our team will be available in breakout rooms to provide personalized assistance.</p>
+                        </div>
+                    </div>
+                    
+                    <div class="timeline-item">
+                        <div class="timeline-time">9:45 PM ET</div>
+                        <div class="timeline-content">
+                            <h3>Showcase & Next Steps</h3>
+                            <p>Share your progress, discuss challenges, and learn about the upcoming NANDA hub launch at MIT on April 15th. We'll outline how you can continue to develop and connect your projects within the ecosystem.</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <h2 id="updates">Live Updates</h2>
+                
+                <div class="live-updates">
+                    <h3><i class="fas fa-sync-alt"></i> Event Updates</h3>
+                    
+                    <div class="update-item">
+                        <div class="update-time">10:00 AM ET</div>
+                        <div class="update-content">
+                            <p><strong>Event Reminder:</strong> Tonight's hack session will begin at 8:00 PM ET. Make sure you've joined our Discord channel for real-time communication.</p>
+                        </div>
+                    </div>
+                    
+                    <div class="update-item">
+                        <div class="update-time">11:30 AM ET</div>
+                        <div class="update-content">
+                            <p><strong>Environment Setup:</strong> To make the most of tonight's session, please install Node.js (v18+) and have a basic development environment ready. Clone the MCP repository ahead of time: <a href="https://github.com/modelcontextprotocol" target="_blank">https://github.com/modelcontextprotocol</a></p>
+                        </div>
+                    </div>
+                    
+                    <div class="update-item">
+                        <div class="update-time">2:00 PM ET</div>
+                        <div class="update-content">
+                            <p><strong>Special Guest:</strong> We're excited to announce that Dr. Elena Martinez from MIT's Media Lab will be joining us to discuss the future of decentralized AI agents.</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <h2 id="resources">Key Resources</h2>
+                
+                <div class="resource-grid">
+                    <div class="resource-card">
+                        <h3>Protocol Specification</h3>
+                        <p>Comprehensive documentation of the NANDA Protocol, including architecture, components, and implementation guidelines.</p>
+                        <a href="protocol.html" class="resource-link">View Specification</a>
+                    </div>
+                    
+                    <div class="resource-card">
+                        <h3>Registry Documentation</h3>
+                        <p>Learn how the NANDA Registry enables discovery, verification, and connectivity between agents in the network.</p>
+                        <a href="registry.html" class="resource-link">Explore Registry</a>
+                    </div>
+                    
+                    <div class="resource-card">
+                        <h3>MCP Integration Tutorial</h3>
+                        <p>Step-by-step guide to implementing Model Context Protocol and connecting it to the NANDA ecosystem.</p>
+                        <a href="tutorial.html" class="resource-link">Start Tutorial</a>
+                    </div>
+                    
+                    <div class="resource-card">
+                        <h3>SDK Documentation</h3>
+                        <p>Developer toolkit for building, registering, and verifying agents within the NANDA network.</p>
+                        <a href="sdk.html" class="resource-link">SDK Docs</a>
+                    </div>
+                </div>
+                
+                <h2 id="community">Community Links</h2>
+                
+                <p>Connect with other participants and the NANDA team through these community channels:</p>
+                
+                <div class="community-links">
+                    <a href="https://discord.gg/d4fBgfuZ" target="_blank" class="community-link">
+                        <i class="fab fa-discord"></i> MIT-MCP-NANDA Hack Discord
+                    </a>
+                    
+                    <a href="https://chat.whatsapp.com/KPKFFspLDSK0lXnYtPip1s" target="_blank" class="community-link">
+                        <i class="fab fa-whatsapp"></i> WhatsApp Group
+                    </a>
+                    
+                    <a href="mailto:dec-ai@media.mit.edu" class="community-link">
+                        <i class="fas fa-envelope"></i> Contact Team
+                    </a>
+                </div>
+                
+                <h2 id="upcoming">Upcoming: NANDA Hub Launch at MIT</h2>
+                
+                <div class="event-card">
+                    <div class="event-header">
+                        <div class="event-time">
+                            <i class="fas fa-calendar-alt"></i> Monday, April 15th, 2025
+                        </div>
+                        <h2>Imagination In Action: Internet of AI Agents</h2>
+                    </div>
+                    
+                    <p>Today's hack event is a precursor to our official NANDA hub launch at MIT next week. The hub will serve as a central connection point for AI agents and projects that implement the NANDA Protocol, creating a thriving ecosystem of interoperable AI systems.</p>
+                    
+                    <p>By participating in today's event and implementing MCP + NANDA with your project, you'll be perfectly positioned to join the hub launch and connect with other participants in the network.</p>
+                    
+                    <div class="event-links">
+                        <h3>MIT Decentralized AI Resources</h3>
+                        <ul>
+                            <li><a href="https://www.media.mit.edu/projects/decentralized-ai/overview/" target="_blank">MIT Program on Decentralized AI</a></li>
+                            <li><a href="https://mitdecai.org/" target="_blank">Event Website</a></li>
+                            <li><a href="https://www.linkedin.com/feed/update/urn:li:activity:7298540438133616640/" target="_blank">NANDA LinkedIn Announcement</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-logo">
+                    <h2>NANDA</h2>
+                    <p>Networked Agents And Decentralized AI</p>
+                </div>
+                <div class="footer-links">
+                    <div class="footer-column">
+                        <h3>Documentation</h3>
+                        <ul>
+                            <li><a href="introduction.html">Introduction</a></li>
+                            <li><a href="architecture.html">Architecture</a></li>
+                            <li><a href="protocol.html">Protocol</a></li>
+                            <li><a href="registry.html">Registry</a></li>
+                            <li><a href="sdk.html">SDK</a></li>
+                            <li><a href="hack.html">Hack</a></li>
+                        </ul>
+                    </div>
+                    <div class="footer-column">
+                        <h3>Community</h3>
+                        <ul>
+                            <li><a href="https://github.com/your-org/nanda-protocol" target="_blank">GitHub</a></li>
+                            <li><a href="https://discord.gg/d4fBgfuZ" target="_blank">Discord</a></li>
+                            <li><a href="https://twitter.com/nandaprotocol" target="_blank">Twitter</a></li>
+                        </ul>
+                    </div>
+                    <div class="footer-column">
+                        <h3>Resources</h3>
+                        <ul>
+                            <li><a href="examples.html">Examples</a></li>
+                            <li><a href="blog.html">Blog</a></li>
+                            <li><a href="roadmap.html">Roadmap</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2025 NANDA Protocol. Licensed under MIT.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="assets/js/main.js"></script>
+</body>
+</html>
