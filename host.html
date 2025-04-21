@@ -1,0 +1,379 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Host - NANDA Protocol</title>
+    <link rel="stylesheet" href="assets/css/styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+</head>
+<body>
+    <header>
+        <div class="container">
+            <div class="header-content">
+                <div class="logo">
+                    <a href="index.html">
+                        <h1>NANDA</h1>
+                        <p>Networked Agents And Decentralized AI</p>
+                    </a>
+                </div>
+                <nav>
+                    <ul>
+                        <li><a href="introduction.html">Introduction</a></li>
+                        <li><a href="architecture.html">Architecture</a></li>
+                        <li><a href="protocol.html">Protocol</a></li>
+                        <li><a href="registry.html">Registry</a></li>
+                        <li><a href="sdk.html">SDK</a></li>
+                        <li class="active"><a href="host.html">Host</a></li>
+                        <li><a href="hack.html">Hack</a></li>
+                        <li><a href="https://github.com/aidecentralized/nanda-servers" target="_blank">GitHub</a></li>
+                    </ul>
+                </nav>
+            </div>
+        </div>
+    </header>
+
+    <div class="page-content">
+        <div class="container">
+            <div class="sidebar">
+                <h3>On This Page</h3>
+                <ul>
+                    <li><a href="#host-overview">Host Overview</a></li>
+                    <li><a href="#architecture">System Architecture</a></li>
+                    <li><a href="#key-components">Key Components</a></li>
+                    <li><a href="#mcp-integration">MCP Integration</a></li>
+                    <li><a href="#credential-system">Credential & Reputation Systems</a></li>
+                    <li><a href="#tool-execution">Tool Execution Flow</a></li>
+                    <li><a href="#deployment">Deployment & Configuration</a></li>
+                    <li><a href="#use-cases">Use Cases</a></li>
+                </ul>
+            </div>
+            
+            <div class="main-content">
+                <h1 id="host-overview">NANDA Host</h1>
+                
+                <p class="intro-text"><strong>NANDA Chat (MCP Host)</strong> is a fully-featured platform built on the <strong>Model Context Protocol (MCP)</strong> to enable seamless integration of language models with external tools. It provides a secure, extensible, and real-time interface for AI agents to communicate with verified MCP servers and execute tool-based tasks.</p>
+                
+                <div class="architecture-diagram">
+                    <img src="assets/images/nandahostui.png" alt="NANDA Host Architecture Diagram" style="max-width: 100%; height: auto;" />
+                    <p class="caption">NANDA Host architecture showing the relationships between React Frontend, Express Server, NANDA Registry, and NANDA Servers with tool execution flow</p>
+                </div>
+                
+                <div class="info-box">
+                    <i class="fas fa-info-circle"></i>
+                    <div>
+                        <p>NANDA Host serves as both a practical application for users needing AI-assisted tool interaction and a reference implementation of the Model Context Protocol, demonstrating best practices for AI tool integration in a web environment.</p>
+                    </div>
+                </div>
+                
+                <h2 id="architecture">System Architecture</h2>
+                <p>NANDA Host follows a client-server architecture with clearly defined components and communication channels:</p>
+                
+                <div class="concept-cards">
+                    <div class="concept-card">
+                        <h3>High-Level Components</h3>
+                        <p>The system architecture consists of several interconnected layers that work together to provide a seamless experience:</p>
+                        <ul>
+                            <li><strong>Frontend Client:</strong> Built with React (TypeScript), styled with Chakra UI and custom themes</li>
+                            <li><strong>Backend Server:</strong> Node.js with Express, managing sessions, tools, and server connections</li>
+                            <li><strong>MCP Integration:</strong> Using official MCP SDK for tool discovery, validation, and execution</li>
+                            <li><strong>Registry Integration:</strong> Connects with NANDA Registry to discover MCP servers</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="concept-card">
+                        <h3>Communication Infrastructure</h3>
+                        <p>The system uses multiple channels for efficient real-time communication:</p>
+                        <ul>
+                            <li><strong>REST API:</strong> For session, tool, and server setup</li>
+                            <li><strong>SSE (Server-Sent Events):</strong> For communication with MCP servers</li>
+                            <li><strong>WebSockets:</strong> For real-time UI updates</li>
+                        </ul>
+                        <p>Fallbacks to long polling exist for environments without WebSocket support.</p>
+                    </div>
+                </div>
+                
+                <h2 id="key-components">Key Components</h2>
+                <p>NANDA Host consists of several specialized components in both the frontend and backend:</p>
+                
+                <div class="component-grid">
+                    <div class="component-card">
+                        <h3>Frontend Components</h3>
+                        <p>The user interface is built with modern web technologies:</p>
+                        <ul>
+                            <li><strong>ChatInterface.tsx:</strong> Main UI for interactions</li>
+                            <li><strong>MessageContent.tsx:</strong> Handles rendering of different message types</li>
+                            <li><strong>ToolCallDisplay.tsx:</strong> Visual feedback for tool execution</li>
+                            <li><strong>SettingsModal.tsx:</strong> User configuration panel</li>
+                            <li><strong>Theming:</strong> Glassmorphism, crimson-accent, responsive layout</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="component-card">
+                        <h3>Backend Components</h3>
+                        <p>The server implements core NANDA functionality:</p>
+                        <ul>
+                            <li><strong>mcp/manager.ts:</strong> Tool discovery and execution engine</li>
+                            <li><strong>mcp/sessionManager.ts:</strong> Tracks session-specific tool usage</li>
+                            <li><strong>mcp/toolRegistry.ts:</strong> Internal metadata repository for tools</li>
+                            <li><strong>WebSocket & SSE:</strong> Real-time tool execution and chat updates</li>
+                            <li><strong>REST API:</strong> Endpoints for session, tool, and server management</li>
+                        </ul>
+                    </div>
+                </div>
+                
+                <h2 id="mcp-integration">Model Context Protocol (MCP) Integration</h2>
+                <p>NANDA Host implements the Model Context Protocol to standardize tool integration:</p>
+                
+                <div class="pillar-cards">
+                    <div class="pillar-card">
+                        <h3>Tool Lifecycle</h3>
+                        <ol>
+                            <li>Load tool metadata from MCP servers</li>
+                            <li>Send tool list to Claude</li>
+                            <li>Claude selects tools, builds parameter input</li>
+                            <li>Backend executes the tool</li>
+                            <li>Claude receives and formats results</li>
+                        </ol>
+                    </div>
+                    
+                    <div class="pillar-card">
+                        <h3>Claude Tool Selection Criteria</h3>
+                        <ul>
+                            <li><strong>Relevance:</strong> Matches user query intent</li>
+                            <li><strong>Parameter Compatibility:</strong> Based on tool schema (Zod, JSON Schema)</li>
+                            <li><strong>Credential Availability:</strong> Only if required creds exist</li>
+                            <li><strong>Tool Reputation:</strong> Prefers verified, high-rated tools</li>
+                        </ul>
+                    </div>
+                </div>
+                
+                <div class="flow-steps">
+                    <li>
+                        <h4>User sends query</h4>
+                        <p>The process begins with a user submitting a query through the chat interface.</p>
+                    </li>
+                    <li>
+                        <h4>Claude analyzes the need</h4>
+                        <p>Claude examines the query to determine if tools are required to fulfill the request.</p>
+                    </li>
+                    <li>
+                        <h4>Tool selection</h4>
+                        <p>If tools are needed, Claude selects the appropriate tools based on the selection criteria.</p>
+                    </li>
+                    <li>
+                        <h4>Parameter preparation</h4>
+                        <p>Claude constructs parameters according to the tool's schema requirements.</p>
+                    </li>
+                    <li>
+                        <h4>Tool execution</h4>
+                        <p>The selected tool is executed with the prepared parameters.</p>
+                    </li>
+                    <li>
+                        <h4>Result processing</h4>
+                        <p>Claude processes the tool results and incorporates them into a comprehensive response.</p>
+                    </li>
+                </div>
+                
+                <h2 id="credential-system">Credential & Reputation Systems</h2>
+                <p>NANDA Host implements robust systems for credential management and tool reputation:</p>
+                
+                <div class="component-grid">
+                    <div class="component-card">
+                        <h3>Credential Management</h3>
+                        <ul>
+                            <li><strong>Definition:</strong> Tools can define credential requirements</li>
+                            <li><strong>Storage:</strong> Encrypted using <code>CREDENTIAL_ENCRYPTION_KEY</code></li>
+                            <li><strong>Validation:</strong> Tools only run if valid credentials are present</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="component-card">
+                        <h3>Tool Reputation</h3>
+                        <ul>
+                            <li><strong>Source:</strong> Derived from registry metadata (ratings, verifications)</li>
+                            <li><strong>Usage:</strong> Impacts Claude's tool selection ranking</li>
+                            <li><strong>Interface:</strong> Ratings displayed alongside tools in the UI</li>
+                        </ul>
+                    </div>
+                </div>
+                
+                <h2 id="tool-execution">Tool Execution Flow</h2>
+                <p>The detailed sequence of tool execution involves multiple components working together:</p>
+                
+                <div class="architecture-diagram">
+                    <pre style="font-size: 0.9em; line-height: 1.3;">
+User -> Client: Send Query
+Client <-> MCP Server: Get Tool List
+Client -> Claude: Send Tools + Query
+Claude -> Client: Select Tool + Parameters
+Client -> MCP Server: Execute Tool
+MCP Server -> Tool: Process Input
+Tool -> MCP Server: Return Results
+MCP Server -> Client -> Claude: Relay Output
+Claude -> Client: Format Response
+Client -> User: Show Final Answer</pre>
+                    <p class="caption">Detailed sequence diagram of tool execution in NANDA Host</p>
+                </div>
+                
+                <div class="info-box">
+                    <i class="fas fa-info-circle"></i>
+                    <div>
+                        <p><strong>Tool Chaining Support:</strong> Claude can use outputs from one tool as input for the next, maintain state across turns using session manager, and handle tool failure gracefully with alternative paths.</p>
+                    </div>
+                </div>
+                
+                <h2 id="deployment">Deployment & Configuration</h2>
+                <p>NANDA Host is designed for flexible deployment in various environments:</p>
+                
+                <div class="pillar-cards">
+                    <div class="pillar-card">
+                        <h3>Requirements</h3>
+                        <ul>
+                            <li>Docker + Docker Compose</li>
+                            <li>Anthropic API Key (Claude)</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="pillar-card">
+                        <h3>Environment Variables</h3>
+                        <ul>
+                            <li><code>CREDENTIAL_ENCRYPTION_KEY</code></li>
+                            <li><code>REGISTRY_URL</code></li>
+                            <li><code>CLAUDE_API_KEY</code></li>
+                            <li><code>PORT</code></li>
+                        </ul>
+                    </div>
+                    
+                    <div class="pillar-card">
+                        <h3>Deployment Options</h3>
+                        <ul>
+                            <li>Local: <code>docker-compose up</code></li>
+                            <li>Cloud: AWS EC2, Render, Railway, etc.</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="pillar-card">
+                        <h3>User Interface</h3>
+                        <ul>
+                            <li><strong>Chat:</strong> Text, Code, and Tool Output support</li>
+                            <li><strong>Settings:</strong> Configure API keys, MCP servers, tool credentials</li>
+                            <li><strong>Tool Explorer:</strong> View and manage available tools</li>
+                        </ul>
+                    </div>
+                </div>
+                
+                <h2 id="use-cases">Use Cases</h2>
+                <p>NANDA Host enables a wide range of applications for AI-assisted tool interaction:</p>
+                
+                <div class="operations-table">
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>Scenario</th>
+                                <th>Description</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>AI Assistant w/ Tools</td>
+                                <td>Let LLMs trigger external tools (e.g., weather, database, code formatter)</td>
+                            </tr>
+                            <tr>
+                                <td>Dev Assistant</td>
+                                <td>Auto-run linters, formatters, database queries</td>
+                            </tr>
+                            <tr>
+                                <td>Data Workflows</td>
+                                <td>Connect spreadsheet or analysis tools for remote execution</td>
+                            </tr>
+                            <tr>
+                                <td>Education</td>
+                                <td>Showcase tool usage to students learning AI</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+                
+                <div class="use-case-grid">
+                    <div class="use-case">
+                        <i class="fas fa-puzzle-piece"></i>
+                        <h3>Standardized Protocol</h3>
+                        <p>Uses MCP for consistent tool integration across different AI platforms and services.</p>
+                    </div>
+                    
+                    <div class="use-case">
+                        <i class="fas fa-expand-arrows-alt"></i>
+                        <h3>Scalability</h3>
+                        <p>Supports multiple concurrent users and tool executions with efficient resource management.</p>
+                    </div>
+                    
+                    <div class="use-case">
+                        <i class="fas fa-plug"></i>
+                        <h3>Extensibility</h3>
+                        <p>Easily add new tools by connecting additional MCP servers without modifying the core codebase.</p>
+                    </div>
+                    
+                    <div class="use-case">
+                        <i class="fas fa-lock"></i>
+                        <h3>Security</h3>
+                        <p>Proper credential management and secure communication channels protect sensitive information.</p>
+                    </div>
+                </div>
+                
+                <div class="next-steps">
+                    <h3>Ready to deploy NANDA Host?</h3>
+                    <ul>
+                        <li><a href="https://github.com/aidecentralized/nanda-servers" target="_blank">View on GitHub</a></li>
+                        <li><a href="registry.html">Learn more about the NANDA Registry</a></li>
+                        <li><a href="sdk.html">Explore the NANDA SDK for agent development</a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-logo">
+                    <h2>NANDA</h2>
+                    <p>Networked Agents And Decentralized AI</p>
+                </div>
+                <div class="footer-links">
+                    <div class="footer-column">
+                        <h3>Documentation</h3>
+                        <ul>
+                            <li><a href="introduction.html">Introduction</a></li>
+                            <li><a href="architecture.html">Architecture</a></li>
+                            <li><a href="protocol.html">Protocol</a></li>
+                            <li><a href="registry.html">Registry</a></li>
+                        </ul>
+                    </div>
+                    <div class="footer-column">
+                        <h3>Community</h3>
+                        <ul>
+                            <li><a href="https://github.com/aidecentralized/nanda-servers" target="_blank">GitHub</a></li>
+                            <li><a href="https://discord.gg/nanda-protocol" target="_blank">Discord</a></li>
+                            <li><a href="https://twitter.com/nandaprotocol" target="_blank">Twitter</a></li>
+                        </ul>
+                    </div>
+                    <div class="footer-column">
+                        <h3>Resources</h3>
+                        <ul>
+                            <li><a href="examples.html">Examples</a></li>
+                            <li><a href="blog.html">Blog</a></li>
+                            <li><a href="roadmap.html">Roadmap</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2025 NANDA Protocol. Licensed under MIT.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="assets/js/main.js"></script>
+</body>
+</html> 
