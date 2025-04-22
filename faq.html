@@ -45,6 +45,10 @@
             font-weight: 600;
             width: 20%;
         }
+        .feature-column {
+            font-weight: 600;
+            width: 15%;
+        }
     </style>
 </head>
 <body>
@@ -80,7 +84,9 @@
                 <h3>On This Page</h3>
                 <ul>
                     <li><a href="#general-faq">General FAQ</a></li>
-                    <li><a href="#comparison">NANDA vs Google</a></li>
+                    <li><a href="#protocols">Protocol Comparison</a></li>
+                    <li><a href="#capabilities">Core Capabilities</a></li>
+                    <li><a href="#participation">Participation & Future</a></li>
                 </ul>
             </div>
             
@@ -91,69 +97,151 @@
                 
                 <div class="faq-section">
                     <div class="faq-item">
-                        <div class="faq-question">1. What is MCP, and how does NANDA relate?</div>
+                        <div class="faq-question">1. What is NANDA?</div>
+                        <div class="faq-answer">
+                            <p>NANDA (Networked AI Agents in Decentralized Architecture) is an open-source protocol infrastructure that enables AI agents to discover, communicate, and transact in a decentralized, verifiable, and trustworthy way. It goes beyond agent communication by building the equivalent of the Web for AI agents—an ecosystem governed by registries, search protocols, identity certificates, and transaction standards.</p>
+                        </div>
+                    </div>
+                    
+                    <div class="faq-item">
+                        <div class="faq-question">2. How is NANDA different from MCP or A2A?</div>
+                        <div class="faq-answer">
+                            <table class="comparison-table">
+                                <thead>
+                                    <tr>
+                                        <th class="feature-column">Feature</th>
+                                        <th>MCP</th>
+                                        <th>A2A</th>
+                                        <th>NANDA</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td class="feature-column">Focus</td>
+                                        <td>Interface between agents and tools (APIs, databases)</td>
+                                        <td>Secure messaging between agents</td>
+                                        <td>Ecosystem infrastructure for decentralized agents</td>
+                                    </tr>
+                                    <tr>
+                                        <td class="feature-column">Purpose</td>
+                                        <td>Enable assistants to use external tools</td>
+                                        <td>Allow agents to delegate, negotiate, and collaborate</td>
+                                        <td>Build a registry-based Web of Agents with discovery, auth, trace, and marketplaces</td>
+                                    </tr>
+                                    <tr>
+                                        <td class="feature-column">Scope</td>
+                                        <td>Tool and data context access</td>
+                                        <td>Agent-to-agent communication</td>
+                                        <td>Agent discovery, identity, verifiability, search, transaction layers</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                    
+                    <div class="faq-item">
+                        <div class="faq-question">3. Is NANDA centralized?</div>
+                        <div class="faq-answer">
+                            <p>No. NANDA is designed to be fully decentralized, enabling any individual, company, or institution to host their own:</p>
+                            <ul>
+                                <li>Agent registry (like DNS for agents)</li>
+                                <li>Local agent node</li>
+                                <li>Application-specific search layer</li>
+                                <li>Verifiability and trace infrastructure</li>
+                            </ul>
+                            <p>It mitigates centralized bottlenecks while enabling global interoperability.</p>
+                        </div>
+                    </div>
+                    
+                    <div class="faq-item" id="capabilities">
+                        <div class="faq-question">4. What are the core capabilities of NANDA?</div>
                         <div class="faq-answer">
                             <ul>
-                                <li>Model Context Protocol (MCP) is a foundational protocol enabling structured communication between AI-driven software agents. Think of MCP as the common "language" agents use to exchange data and coordinate actions.</li>
-                                <li>NANDA (Networked AI Agents in Decentralized Architecture) enhances MCP by providing critical infrastructure: verified identities, security standards, trusted registries, and marketplace capabilities. In other words, MCP handles how agents communicate, and NANDA ensures their interactions are secure, trusted, and effective across organizational boundaries.</li>
+                                <li><strong>Discovery:</strong> Decentralized mechanisms for agents to find each other.</li>
+                                <li><strong>Search Functionality:</strong> Distributed knowledge querying.</li>
+                                <li><strong>Authentication:</strong> Secure identity verification protocols.</li>
+                                <li><strong>Trace:</strong> Verifiable accountability for agent-to-agent interactions.</li>
+                                <li><strong>Certificates:</strong> Identity attestations for secure recognition and interaction.</li>
+                                <li><strong>Agent Registry:</strong> Modular, federated infrastructure for agent publishing, metadata, and reputation.</li>
+                                <li><strong>Transaction Framework:</strong> Support for agent-to-agent service agreements and monetization.</li>
                             </ul>
                         </div>
                     </div>
                     
                     <div class="faq-item">
-                        <div class="faq-question">2. Is NANDA centralized or decentralized?</div>
+                        <div class="faq-question">5. Who is NANDA for?</div>
                         <div class="faq-answer">
-                            <p>NANDA operates as a decentralized network, hosted independently across global organizations. This decentralized model enhances resilience, openness, and fairness in digital interactions.</p>
-                        </div>
-                    </div>
-                    
-                    <div class="faq-item">
-                        <div class="faq-question">3. What specific challenges does NANDA address?</div>
-                        <div class="faq-answer">
-                            <p>NANDA tackles significant barriers in multi-agent ecosystems, including:</p>
                             <ul>
-                                <li>Ensuring data privacy and security through identity verification.</li>
-                                <li>Facilitating secure transactions and interactions.</li>
-                                <li>Providing efficient agent discovery and reputation management.</li>
-                                <li>Enabling coordinated collaboration across organizations without centralized control.</li>
+                                <li><strong>Developers & Researchers:</strong> Create decentralized, verifiable agent-based systems.</li>
+                                <li><strong>Organizations:</strong> Host agents or registries for secure cross-domain automation.</li>
+                                <li><strong>Startups:</strong> Build interoperable apps without relying on cloud monopolies.</li>
+                                <li><strong>End Users:</strong> Leverage agents to perform tasks, collaborate, and learn on their behalf—safely and privately.</li>
                             </ul>
                         </div>
                     </div>
                     
                     <div class="faq-item">
-                        <div class="faq-question">4. Who are the key beneficiaries of NANDA?</div>
+                        <div class="faq-question">6. What is the relationship between NANDA and other agent technologies?</div>
                         <div class="faq-answer">
+                            <p>NANDA provides the infrastructure for agent registries, search, identity, and trust. Other technologies like MCP or A2A provide communication or tool integration standards. NANDA can incorporate and extend these to create a self-organizing, interoperable Web of Agents.</p>
+                        </div>
+                    </div>
+                    
+                    <div class="faq-item">
+                        <div class="faq-question">7. Who governs NANDA?</div>
+                        <div class="faq-answer">
+                            <p>NANDA is community-governed and incubated at MIT Media Lab. It evolves through open research, contribution-based working groups, and collaborations with academic and industry partners.</p>
+                            <p>Founding Node Members include:</p>
                             <ul>
-                                <li><strong>Developers and Researchers:</strong> Access robust frameworks to develop secure, decentralized AI applications quickly.</li>
-                                <li><strong>Enterprises:</strong> Streamline integration and automate complex business processes across multiple platforms securely.</li>
-                                <li><strong>End Users:</strong> Experience safe, intelligent automation of complex daily tasks.</li>
+                                <li>MIT, Stanford, UCLA, University of Tokyo, MBZUAI, EPFL, UFRJ, and others</li>
+                                <li>Industry collaborators like HCLTech, Mitsubishi Electric, Synergetics</li>
                             </ul>
                         </div>
                     </div>
                     
                     <div class="faq-item">
-                        <div class="faq-question">5. What's a practical example of NANDA in action?</div>
+                        <div class="faq-question">8. What are some real-world use cases?</div>
                         <div class="faq-answer">
-                            <p>There are infinite use cases across sectors. For example, financial institutions often face challenges in detecting fraud due to data silos and privacy concerns. With NANDA, banks can deploy AI agents that collaborate across institutions to identify fraudulent patterns without sharing sensitive customer data. This decentralized approach enhances fraud detection capabilities while maintaining data privacy and compliance.</p>
+                            <ul>
+                                <li><strong>Finance:</strong> Cross-institution fraud detection without centralizing sensitive data</li>
+                                <li><strong>Education:</strong> AI tutors that collaborate across content sources with verifiability</li>
+                                <li><strong>Healthcare:</strong> Coordinated diagnostics from local agents while preserving patient privacy</li>
+                                <li><strong>E-Commerce:</strong> Shopping agents comparing options across vendor-owned catalogs</li>
+                                <li><strong>Logistics:</strong> Planning delivery routes across decentralized agent networks</li>
+                            </ul>
                         </div>
                     </div>
                     
                     <div class="faq-item">
-                        <div class="faq-question">6. How easy is it for organizations to adopt NANDA?</div>
+                        <div class="faq-question">9. How does agent registration and reputation work?</div>
                         <div class="faq-answer">
-                            <p>Extremely accessible. Organizations can rapidly adapt existing APIs or services, often within hours, to become part of the secure and open NANDA ecosystem.</p>
+                            <p>NANDA's registry system supports:</p>
+                            <ul>
+                                <li><strong>Certificates:</strong> Identity attestations from registries to verify agent authenticity</li>
+                                <li><strong>SDK-based operations:</strong> Register/search/lookup via the NANDA SDK</li>
+                                <li><strong>Custom registries:</strong> Organizations or individuals can run their own registry node</li>
+                                <li><strong>Reputation tracking:</strong> Based on verifiable interactions and endorsements from other agents</li>
+                            </ul>
                         </div>
                     </div>
                     
-                    <div class="faq-item">
-                        <div class="faq-question">7. How can I start participating or contributing to NANDA?</div>
+                    <div class="faq-item" id="participation">
+                        <div class="faq-question">10. How do I participate or build with NANDA?</div>
                         <div class="faq-answer">
-                            <p>Visit <a href="https://nanda.mit.edu" target="_blank">NANDA.mit.edu</a> for detailed documentation, contribution guidelines, open-source repositories, and partnership opportunities. Join our global working groups, contribute to open-source developments, or deploy your services to leverage the decentralized future of AI.</p>
+                            <p>You can:</p>
+                            <ul>
+                                <li>Host a NANDA registry or agent</li>
+                                <li>Register an API, agent service, or app</li>
+                                <li>Contribute to GitHub: <a href="https://github.com/aidecentralized/nanda-servers" target="_blank">github.com/aidecentralized/nanda-servers</a></li>
+                                <li>Join working groups: Agentic AI, Edge AI, Privacy-preserving ML, etc.</li>
+                                <li>Visit the demo: <a href="https://ui.nanda-registry.com" target="_blank">ui.nanda-registry.com</a></li>
+                                <li>Learn more: <a href="https://NANDA.mit.edu" target="_blank">NANDA.mit.edu</a></li>
+                            </ul>
                         </div>
                     </div>
                 </div>
                 
-                <h2 id="comparison">NANDA vs Google A2A</h2>
+                <h2 id="protocols">NANDA vs Google A2A</h2>
                 
                 <p>This comparison highlights key differences between NANDA and Google's Agent-to-Agent (A2A) approach:</p>
                 
@@ -169,33 +257,33 @@
                         <tbody>
                             <tr>
                                 <td class="aspect-column">Control & Hosting</td>
-                                <td>Emphasizes decentralized control—anyone can run an agent, a registry, or a host locally or in the cloud</td>
-                                <td>Designed for enterprise deployment, assuming agents live in cloud environments or enterprise systems</td>
+                                <td>Decentralized, self-hosted</td>
+                                <td>Cloud-first, enterprise controlled</td>
                             </tr>
                             <tr>
                                 <td class="aspect-column">Design Philosophy</td>
-                                <td>Built for open, user-sovereign ecosystems where developers retain control and can innovate outside large platforms</td>
-                                <td>Built for enterprise-grade interoperability, focused on structured workflows and integration with existing SaaS systems</td>
+                                <td>Open, user-owned</td>
+                                <td>SaaS/Enterprise integration</td>
                             </tr>
                             <tr>
-                                <td class="aspect-column">Registry & Discovery</td>
-                                <td>Includes support for federated or decentralized registries, enabling local and community-driven networks</td>
-                                <td>Assumes a centralized or vendor-backed registry for agent capabilities and availability (e.g., Agent Cards)</td>
+                                <td class="aspect-column">Registry Model</td>
+                                <td>Federated, local registries</td>
+                                <td>Centralized or vendor-backed</td>
+                            </tr>
+                            <tr>
+                                <td class="aspect-column">Governance</td>
+                                <td>Community-driven via MIT</td>
+                                <td>Google and select partners</td>
                             </tr>
                             <tr>
                                 <td class="aspect-column">Audience</td>
-                                <td>Geared toward researchers, protocol hackers, decentralized web developers, and open-source communities</td>
-                                <td>Targeted at enterprises, vendors, and managed service providers deploying large agent networks</td>
-                            </tr>
-                            <tr>
-                                <td class="aspect-column">Governance Model</td>
-                                <td>Community-governed and evolving via MIT's open research (based on MCP and decentralized agent principles)</td>
-                                <td>Google-led with backing from over 50 tech partners; direction set by Google Cloud and collaborators</td>
+                                <td>Hackers, researchers, open-source</td>
+                                <td>Enterprise IT and cloud vendors</td>
                             </tr>
                             <tr>
                                 <td class="aspect-column">Core Use Case</td>
-                                <td>Enabling decentralized agents to interact peer-to-peer across domains, including personal computing, local networks, and open ecosystems</td>
-                                <td>Streamlining cross-enterprise agent workflows like task delegation, ticketing, CRM integration, and supply chain ops</td>
+                                <td>Cross-domain p2p agent ecosystems</td>
+                                <td>Streamlined enterprise workflows</td>
                             </tr>
                         </tbody>
                     </table>
@@ -205,6 +293,59 @@
                     <i class="fas fa-info-circle"></i>
                     <div>
                         <p>While both NANDA and Google A2A aim to enable agent communication, NANDA's focus on decentralization and open ecosystems makes it particularly valuable for applications requiring sovereignty, privacy, and cross-organizational collaboration without central control.</p>
+                    </div>
+                </div>
+                
+                <h2>Additional Questions</h2>
+                
+                <div class="faq-section">
+                    <div class="faq-item">
+                        <div class="faq-question">12. Is NANDA production-ready?</div>
+                        <div class="faq-answer">
+                            <p>Yes, early deployments are already in use by partners like HCLTech, Mitsubishi Electric, and academic institutions. It is designed for gradual adoption—start with a single registry or agent and grow organically.</p>
+                        </div>
+                    </div>
+                    
+                    <div class="faq-item">
+                        <div class="faq-question">13. What industries are adopting NANDA?</div>
+                        <div class="faq-answer">
+                            <ul>
+                                <li>Finance & Insurance</li>
+                                <li>Healthcare & Biotech</li>
+                                <li>Education & Research</li>
+                                <li>E-commerce & Retail</li>
+                                <li>Industrial IoT & Robotics</li>
+                            </ul>
+                        </div>
+                    </div>
+                    
+                    <div class="faq-item">
+                        <div class="faq-question">14. Can I connect existing tools to NANDA?</div>
+                        <div class="faq-answer">
+                            <p>Yes. Existing APIs, tools, or data systems can be wrapped with agents and registered into the NANDA ecosystem for secure and interoperable interaction with other agents.</p>
+                        </div>
+                    </div>
+                    
+                    <div class="faq-item">
+                        <div class="faq-question">15. What's next for NANDA?</div>
+                        <div class="faq-answer">
+                            <ul>
+                                <li>SDK releases for easier agent onboarding</li>
+                                <li>More decentralized registry deployments</li>
+                                <li>Incentive layers for agent micropayments</li>
+                                <li>Interop specs for bridging NANDA ↔ Google A2A</li>
+                                <li>Continued research collaborations on agent economics, trust scoring, and privacy layers</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="banner" style="background-color: var(--background-light); padding: 1.5rem; border-radius: var(--radius-md); margin-top: 2rem; text-align: center;">
+                    <p style="font-size: 1.1rem; margin-bottom: 0.5rem;">NANDA is not just a technology—it's a movement toward decentralized, trusted, and agentic AI. Join us in building the next layer of the Internet: the Web of Agents.</p>
+                    <div style="display: flex; justify-content: center; gap: 1rem; margin-top: 1rem;">
+                        <a href="https://NANDA.mit.edu" target="_blank" class="btn primary" style="display: inline-flex; align-items: center; gap: 0.5rem;"><i class="fas fa-globe"></i> NANDA.mit.edu</a>
+                        <a href="https://github.com/aidecentralized/nanda-servers" target="_blank" class="btn secondary" style="display: inline-flex; align-items: center; gap: 0.5rem;"><i class="fab fa-github"></i> GitHub</a>
+                        <a href="https://NANDA.mit.edu/working-groups" target="_blank" class="btn secondary" style="display: inline-flex; align-items: center; gap: 0.5rem;"><i class="fas fa-users"></i> Join Working Groups</a>
                     </div>
                 </div>
             </div>
