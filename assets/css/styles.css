@@ -2,10 +2,11 @@
 
 /* Base Styles */
 :root {
-    --primary-color: #4a6bff;
-    --primary-dark: #3857e2;
-    --secondary-color: #6c4fff;
-    --accent-color: #ff5e81;
+    --primary-color: #A31F34;  /* MIT Magenta */
+    --primary-dark: #8B1A2D;   /* Darker MIT Magenta */
+    --primary-light: #C9344D;  /* Lighter MIT Magenta */
+    --secondary-color: #8A8B8C; /* MIT Gray */
+    --accent-color: #F2F2F2;   /* MIT Light Gray */
     --text-color: #2c3e50;
     --text-light: #7e8890;
     --background-color: #ffffff;
