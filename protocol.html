@@ -6,6 +6,7 @@
     <title>Protocol Specification - NANDA Protocol</title>
     <link rel="stylesheet" href="assets/css/styles.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap">
 </head>
 <body>
     <header>
@@ -24,7 +25,9 @@
                         <li class="active"><a href="protocol.html">Protocol</a></li>
                         <li><a href="registry.html">Registry</a></li>
                         <li><a href="sdk.html">SDK</a></li>
+                        <li><a href="host.html">Host</a></li>
                         <li><a href="hack.html">Hack</a></li>
+                        <li><a href="faq.html">FAQ</a></li>
                         <li><a href="https://github.com/aidecentralized/nanda-servers" target="_blank">GitHub</a></li>
                     </ul>
                 </nav>
@@ -32,30 +35,116 @@
         </div>
     </header>
 
+    <div class="hero-section">
+        <div class="container">
+            <h1>NANDA Protocol</h1>
+            <p class="subtitle">An open protocol extending MCP for a decentralized network of AI agents, resources, and tools</p>
+            <div class="cta-buttons">
+                <a href="#features" class="btn primary">Explore Features</a>
+                <a href="https://github.com/aidecentralized/nanda-servers" class="btn secondary">View on GitHub</a>
+            </div>
+        </div>
+    </div>
+
     <div class="page-content">
         <div class="container">
-            <div class="coming-soon-container">
-                <div class="coming-soon-content">
-                    <h1>NANDA Protocol Specification</h1>
-                    <div class="coming-soon-badge">
-                        <i class="fas fa-hourglass-half"></i>
-                        <span>Coming Soon</span>
+            <div class="protocol-content">
+                <div class="protocol-introduction">
+                    <h2>The NANDA Protocol Specification</h2>
+                    <div class="status-badge">
+                        <i class="fas fa-code-branch"></i>
+                        <span>Version 1.0 Alpha</span>
                     </div>
-                    <p class="coming-soon-message">We're working hard on finalizing the NANDA Protocol Specification. The complete documentation will be available shortly.</p>
-                    <div class="progress-info">
-                        <h3>What to expect</h3>
-                        <ul>
-                            <li><i class="fas fa-check-circle"></i> Detailed message formats for agent interactions</li>
-                            <li><i class="fas fa-check-circle"></i> Service discovery and negotiation protocols</li>
-                            <li><i class="fas fa-check-circle"></i> Authentication and reputation frameworks</li>
-                            <li><i class="fas fa-check-circle"></i> MCP compatibility specifications</li>
-                            <li><i class="fas fa-check-circle"></i> Implementation guidelines and best practices</li>
-                        </ul>
+                    <p>The NANDA Protocol provides a comprehensive framework for enabling decentralized AI agent networks to discover, authenticate, transact, and build reputation with each other. Built as an extension to the Model Context Protocol (MCP), NANDA adds the infrastructure needed for large-scale agent ecosystems.</p>
+                </div>
+
+                <div class="feature-grid" id="features">
+                    <div class="feature-card">
+                        <div class="feature-icon">
+                            <i class="fas fa-compass"></i>
+                        </div>
+                        <h3>Discovery</h3>
+                        <p>Mechanisms for AI agents to find each other in the network, regardless of scale or topology</p>
                     </div>
 
-                    <div class="alternate-actions">
-                        <a href="introduction.html" class="btn secondary"><i class="fas fa-arrow-left"></i> Back to Introduction</a>
-                        <a href="https://github.com/aidecentralized/nanda-servers" class="btn secondary">Join Development <i class="fas fa-external-link-alt"></i></a>
+                    <div class="feature-card">
+                        <div class="feature-icon">
+                            <i class="fas fa-handshake"></i>
+                        </div>
+                        <h3>Commerce</h3>
+                        <p>Seamless transactional framework for agents to exchange services and resources</p>
+                    </div>
+
+                    <div class="feature-card">
+                        <div class="feature-icon">
+                            <i class="fas fa-shield-alt"></i>
+                        </div>
+                        <h3>Authentication</h3>
+                        <p>Robust verification protocols ensuring secure and trustworthy agent interactions</p>
+                    </div>
+
+                    <div class="feature-card">
+                        <div class="feature-icon">
+                            <i class="fas fa-star"></i>
+                        </div>
+                        <h3>Reputation</h3>
+                        <p>Verifiable agent-to-agent accountability through transparent reputation management</p>
+                    </div>
+                </div>
+
+                <div class="documentation-section">
+                    <h2>Documentation Status</h2>
+                    <p>We're currently finalizing the NANDA Protocol Specification. The complete documentation will be available shortly. Here's what to expect:</p>
+                    
+                    <div class="spec-checklist">
+                        <ul>
+                            <li>
+                                <i class="fas fa-check-circle"></i> 
+                                <div>
+                                    <h4>Message Formats</h4>
+                                    <p>Detailed specifications for agent interaction message formats</p>
+                                </div>
+                            </li>
+                            <li>
+                                <i class="fas fa-check-circle"></i>
+                                <div>
+                                    <h4>Service Discovery</h4>
+                                    <p>Protocols for agent discovery and capability negotiation</p>
+                                </div>
+                            </li>
+                            <li>
+                                <i class="fas fa-check-circle"></i>
+                                <div>
+                                    <h4>Authentication & Trust</h4>
+                                    <p>Security frameworks for establishing and maintaining trust</p>
+                                </div>
+                            </li>
+                            <li>
+                                <i class="fas fa-check-circle"></i>
+                                <div>
+                                    <h4>MCP Compatibility</h4>
+                                    <p>Guidelines for ensuring compatibility with the MCP ecosystem</p>
+                                </div>
+                            </li>
+                            <li>
+                                <i class="fas fa-check-circle"></i>
+                                <div>
+                                    <h4>Implementation Guides</h4>
+                                    <p>Best practices and reference implementations</p>
+                                </div>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="collaboration-section">
+                    <h2>Join the Development</h2>
+                    <p>NANDA is an open, community-driven protocol. We welcome contributions from researchers, developers, and organizations interested in advancing decentralized AI infrastructure.</p>
+                    
+                    <div class="action-buttons">
+                        <a href="introduction.html" class="btn secondary"><i class="fas fa-arrow-left"></i> Learn the Basics</a>
+                        <a href="https://github.com/aidecentralized/nanda-servers" class="btn primary"><i class="fab fa-github"></i> Contribute on GitHub</a>
+                        <a href="hack.html" class="btn secondary"><i class="fas fa-code"></i> Join a Hack Event</a>
                     </div>
                 </div>
             </div>
@@ -104,80 +193,344 @@
     </footer>
 
     <style>
-        .coming-soon-container {
+        :root {
+            --mit-red: #A31F34;
+            --mit-red-dark: #8b1a2d;
+            --mit-light-gray: #F2F2F2;
+            --mit-dark-gray: #333333;
+            --mit-black: #000000;
+            --mit-white: #FFFFFF;
+        }
+        
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+            line-height: 1.6;
+            color: var(--mit-dark-gray);
+            background-color: var(--mit-white);
+        }
+        
+        .hero-section {
+            background-color: var(--mit-red);
+            color: white;
+            padding: 5rem 0;
+            text-align: center;
+            position: relative;
+        }
+        
+        .hero-section::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            height: 4rem;
+            background: linear-gradient(to bottom right, var(--mit-red) 0%, var(--mit-red) 50%, transparent 50%);
+        }
+        
+        .hero-section h1 {
+            font-size: 3.5rem;
+            font-weight: 700;
+            margin-bottom: 1rem;
+            color: white;
+            letter-spacing: -0.03em;
+        }
+        
+        .subtitle {
+            font-size: 1.25rem;
+            margin-bottom: 2rem;
+            max-width: 800px;
+            margin-left: auto;
+            margin-right: auto;
+            opacity: 0.9;
+        }
+        
+        .cta-buttons {
             display: flex;
             justify-content: center;
-            align-items: center;
+            gap: 1rem;
+            margin-top: 2.5rem;
+        }
+        
+        .btn {
+            display: inline-block;
+            padding: 0.75rem 1.5rem;
+            font-weight: 600;
+            text-align: center;
+            border-radius: 6px;
+            cursor: pointer;
+            transition: all 0.2s ease;
+            text-decoration: none;
+        }
+        
+        .btn.primary {
+            background-color: white;
+            color: var(--mit-red);
+            border: 2px solid white;
+        }
+        
+        .btn.primary:hover {
+            background-color: rgba(255, 255, 255, 0.9);
+        }
+        
+        .btn.secondary {
+            background-color: transparent;
+            color: white;
+            border: 2px solid rgba(255, 255, 255, 0.7);
+        }
+        
+        .btn.secondary:hover {
+            background-color: rgba(255, 255, 255, 0.1);
+            border-color: white;
+        }
+        
+        .protocol-content {
+            max-width: 1000px;
+            margin: 0 auto;
             padding: 4rem 0;
         }
         
-        .coming-soon-content {
-            max-width: 800px;
+        .protocol-introduction {
             text-align: center;
-            background-color: #f8f9fa;
-            border-radius: 10px;
-            padding: 3rem;
-            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+            margin-bottom: 3rem;
         }
         
-        .coming-soon-badge {
+        .protocol-introduction h2 {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+            color: var(--mit-red);
+        }
+        
+        .protocol-introduction p {
+            font-size: 1.2rem;
+            max-width: 800px;
+            margin: 0 auto;
+            color: var(--mit-dark-gray);
+        }
+        
+        .status-badge {
             display: inline-flex;
             align-items: center;
-            background-color: #f0f4ff;
-            color: #3a56e4;
+            background-color: rgba(163, 31, 52, 0.1);
+            color: var(--mit-red);
             padding: 0.5rem 1rem;
             border-radius: 30px;
-            font-weight: bold;
-            margin: 1.5rem 0;
+            font-weight: 600;
+            margin: 1rem 0 2rem;
         }
         
-        .coming-soon-badge i {
+        .status-badge i {
             margin-right: 8px;
-            font-size: 1.2rem;
         }
         
-        .coming-soon-message {
-            font-size: 1.2rem;
-            color: #555;
+        .feature-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            margin: 3rem 0;
+        }
+        
+        .feature-card {
+            background-color: white;
+            border-radius: 10px;
+            padding: 2rem;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
+            transition: all 0.3s ease;
+            border: 1px solid #eee;
+            text-align: center;
+        }
+        
+        .feature-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+            border-color: var(--mit-red);
+        }
+        
+        .feature-icon {
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            background-color: var(--mit-red);
+            color: white;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 1.5rem;
+            font-size: 1.5rem;
+        }
+        
+        .feature-card h3 {
+            font-size: 1.25rem;
+            margin-bottom: 1rem;
+            color: var(--mit-red);
+        }
+        
+        .feature-card p {
+            color: var(--mit-dark-gray);
+            line-height: 1.6;
+        }
+        
+        .documentation-section, .collaboration-section {
+            margin: 5rem 0;
+        }
+        
+        .documentation-section h2, .collaboration-section h2 {
+            text-align: center;
+            font-size: 2rem;
+            color: var(--mit-red);
             margin-bottom: 2rem;
         }
         
-        .progress-info {
-            margin: 2rem 0;
-            text-align: left;
+        .documentation-section p, .collaboration-section p {
+            text-align: center;
+            max-width: 800px;
+            margin: 0 auto 2rem;
+            font-size: 1.1rem;
         }
         
-        .progress-info ul {
+        .spec-checklist {
+            max-width: 800px;
+            margin: 0 auto;
+            background-color: #f9f9f9;
+            border-radius: 10px;
+            padding: 2rem;
+        }
+        
+        .spec-checklist ul {
             list-style: none;
             padding: 0;
         }
         
-        .progress-info li {
-            margin: 0.8rem 0;
-            padding-left: 1.5rem;
-            position: relative;
+        .spec-checklist li {
+            display: flex;
+            align-items: flex-start;
+            margin-bottom: 1.5rem;
+            padding-bottom: 1.5rem;
+            border-bottom: 1px solid #eee;
         }
         
-        .progress-info li i {
-            position: absolute;
-            left: 0;
-            top: 5px;
-            color: #28a745;
+        .spec-checklist li:last-child {
+            margin-bottom: 0;
+            padding-bottom: 0;
+            border-bottom: none;
         }
         
-
+        .spec-checklist i {
+            color: var(--mit-red);
+            font-size: 1.25rem;
+            margin-right: 1rem;
+            margin-top: 0.25rem;
+            flex-shrink: 0;
+        }
         
-        .alternate-actions {
+        .spec-checklist h4 {
+            font-size: 1.1rem;
+            margin: 0 0 0.25rem;
+            color: var(--mit-dark-gray);
+        }
+        
+        .spec-checklist p {
+            margin: 0;
+            text-align: left;
+            font-size: 0.95rem;
+            color: #666;
+        }
+        
+        .action-buttons {
             display: flex;
             justify-content: center;
             gap: 1rem;
-            margin-top: 2rem;
+            flex-wrap: wrap;
         }
         
-                    @media (max-width: 768px) {
+        .action-buttons .btn {
+            margin: 0.5rem;
+        }
+        
+        .action-buttons .btn.primary {
+            background-color: var(--mit-red);
+            color: white;
+            border: 2px solid var(--mit-red);
+        }
+        
+        .action-buttons .btn.primary:hover {
+            background-color: var(--mit-red-dark);
+            border-color: var(--mit-red-dark);
+        }
+        
+        .action-buttons .btn.secondary {
+            background-color: transparent;
+            color: var(--mit-red);
+            border: 2px solid var(--mit-red);
+        }
+        
+        .action-buttons .btn.secondary:hover {
+            background-color: rgba(163, 31, 52, 0.05);
+        }
+        
+        /* Override header styles */
+        header {
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+        }
+        
+        .logo h1 {
+            color: var(--mit-red);
+        }
+        
+        nav a:hover {
+            background-color: rgba(163, 31, 52, 0.1);
+            color: var(--mit-red);
+        }
+        
+        nav li.active a {
+            background-color: var(--mit-red);
+            color: white;
+        }
+        
+        /* Footer styles */
+        footer {
+            background-color: var(--mit-dark-gray);
+            color: white;
+            padding: 4rem 0 2rem;
+            margin-top: 4rem;
+        }
+        
+        .footer-logo h2 {
+            color: white;
+        }
+        
+        .footer-column h3 {
+            color: rgba(255, 255, 255, 0.8);
+        }
+        
+        .footer-column a {
+            color: rgba(255, 255, 255, 0.7);
+        }
+        
+        .footer-column a:hover {
+            color: white;
+        }
+        
+        /* Mobile responsive styles */
+        @media (max-width: 768px) {
+            .hero-section h1 {
+                font-size: 2.5rem;
+            }
             
-            .alternate-actions {
+            .feature-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .action-buttons {
                 flex-direction: column;
+                align-items: center;
+            }
+            
+            .action-buttons .btn {
+                width: 100%;
+            }
+            
+            .spec-checklist {
+                padding: 1.5rem;
             }
         }
     </style>
