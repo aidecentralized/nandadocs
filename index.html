@@ -6,6 +6,357 @@
     <title>NANDA Protocol - Networked Agents And Decentralized AI</title>
     <link rel="stylesheet" href="assets/css/styles.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap">
+    <style>
+        :root {
+            --mit-red: #A31F34;
+            --mit-red-dark: #8B1A2D;
+            --mit-red-light: #C9344D;
+            --mit-gray: #8A8B8C;
+            --mit-light-gray: #F2F2F2;
+            --mit-black: #000000;
+            --mit-white: #FFFFFF;
+            --gradient-overlay: linear-gradient(135deg, rgba(163, 31, 52, 0.9), rgba(139, 26, 45, 0.85));
+        }
+        
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background-color: white;
+        }
+        
+        .logo h1 {
+            color: var(--mit-red);
+        }
+        
+        nav li.active a, nav a:hover {
+            background-color: rgba(163, 31, 52, 0.1);
+            color: var(--mit-red);
+        }
+        
+        /* Hero section styling */
+        .hero {
+            background: var(--gradient-overlay), url('assets/images/NANDA_arch.png') center/cover;
+            color: white;
+            padding: 8rem 0 6rem;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .hero::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            height: 4rem;
+            background: linear-gradient(to bottom right, transparent 0%, transparent 50%, white 50%);
+        }
+        
+        .hero h1 {
+            font-size: 4rem;
+            font-weight: 800;
+            margin-bottom: 1rem;
+            color: white;
+            line-height: 1.2;
+            letter-spacing: -0.03em;
+        }
+        
+        .subtitle {
+            font-size: 1.5rem;
+            margin-bottom: 2rem;
+            max-width: 800px;
+            margin-left: auto;
+            margin-right: auto;
+            opacity: 0.9;
+            font-weight: 400;
+        }
+        
+        .hero-tagline {
+            font-size: 1.2rem;
+            font-weight: 500;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            margin-bottom: 1.5rem;
+            color: rgba(255, 255, 255, 0.9);
+        }
+        
+        .btn.primary {
+            background-color: white;
+            color: var(--mit-red);
+            border: 2px solid white;
+            padding: 0.75rem 2rem;
+            font-weight: 600;
+            font-size: 1.1rem;
+        }
+        
+        .btn.primary:hover {
+            background-color: rgba(255, 255, 255, 0.9);
+        }
+        
+        .btn.secondary {
+            background-color: transparent;
+            color: white;
+            border: 2px solid rgba(255, 255, 255, 0.7);
+            padding: 0.75rem 2rem;
+            font-weight: 600;
+            font-size: 1.1rem;
+        }
+        
+        .btn.secondary:hover {
+            background-color: rgba(255, 255, 255, 0.1);
+            border-color: white;
+        }
+
+        /* Features section styling */
+        .features {
+            padding: 5rem 0 3rem;
+        }
+        
+        .section-title {
+            text-align: center;
+            margin-bottom: 3rem;
+        }
+        
+        .section-title h2 {
+            font-size: 2.5rem;
+            color: var(--mit-red);
+            margin-bottom: 1rem;
+        }
+        
+        .section-title p {
+            font-size: 1.2rem;
+            color: var(--mit-gray);
+            max-width: 800px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+        
+        .feature-card {
+            background-color: white;
+            border-radius: 12px;
+            padding: 2rem;
+            text-align: center;
+            box-shadow: 0 8px 30px rgba(0, 0, 0, 0.06);
+            transition: all 0.3s ease;
+            border: 1px solid #eee;
+            height: 100%;
+        }
+        
+        .feature-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.1);
+            border-color: var(--mit-red-light);
+        }
+        
+        .feature-card i {
+            background-color: var(--mit-red);
+            color: white;
+            width: 70px;
+            height: 70px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 1.5rem;
+            font-size: 1.75rem;
+            box-shadow: 0 10px 20px rgba(163, 31, 52, 0.15);
+        }
+
+        /* Doc overview section */
+        .doc-overview {
+            background-color: var(--mit-light-gray);
+            padding: 5rem 0;
+            margin: 5rem 0 0;
+        }
+        
+        .doc-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+        }
+        
+        .doc-card {
+            background-color: white;
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.05);
+            transition: all 0.3s ease;
+            display: flex;
+            flex-direction: column;
+        }
+        
+        .doc-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
+        }
+        
+        .doc-card-header {
+            background-color: var(--mit-red);
+            padding: 1.5rem;
+            color: white;
+        }
+        
+        .doc-card-header h3 {
+            color: white;
+            margin: 0;
+            font-size: 1.5rem;
+            font-weight: 700;
+        }
+        
+        .doc-card-content {
+            padding: 1.5rem;
+            flex-grow: 1;
+        }
+        
+        .doc-card-content p {
+            margin-bottom: 1rem;
+        }
+        
+        .doc-links {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+        
+        .doc-links li {
+            margin-bottom: 0.5rem;
+            position: relative;
+            padding-left: 1.5rem;
+        }
+        
+        .doc-links li::before {
+            content: '\f105';
+            font-family: 'Font Awesome 5 Free';
+            font-weight: 900;
+            position: absolute;
+            left: 0;
+            top: 0.25rem;
+            color: var(--mit-red);
+            font-size: 0.9rem;
+        }
+        
+        /* MCP integration section */
+        .mcp-integration {
+            padding: 5rem 0;
+        }
+        
+        .mcp-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 4rem;
+            align-items: center;
+        }
+        
+        .mcp-info {
+            text-align: left;
+        }
+        
+        .mcp-info h2 {
+            color: var(--mit-red);
+            font-size: 2.5rem;
+            margin-bottom: 1.5rem;
+        }
+        
+        .mcp-info p {
+            font-size: 1.1rem;
+            margin-bottom: 1.5rem;
+            color: #555;
+        }
+        
+        /* Use cases section */
+        .use-cases {
+            padding: 5rem 0;
+            background-color: white;
+        }
+        
+        .use-case-card {
+            background-color: white;
+            border-radius: 12px;
+            padding: 2rem;
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.05);
+            transition: all 0.3s ease;
+            border: 1px solid #eee;
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
+        }
+        
+        .use-case-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
+            border-color: var(--mit-red-light);
+        }
+        
+        .use-case-card i {
+            background: linear-gradient(135deg, var(--mit-red), var(--mit-red-dark));
+            color: white;
+            width: 70px;
+            height: 70px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 1.5rem;
+            font-size: 1.75rem;
+            box-shadow: 0 10px 20px rgba(163, 31, 52, 0.15);
+        }
+        
+        /* Footer styling */
+        footer {
+            background-color: var(--mit-red);
+            color: white;
+            padding: 4rem 0 2rem;
+        }
+        
+        .footer-logo h2 {
+            color: white;
+        }
+        
+        .footer-column h3 {
+            color: rgba(255, 255, 255, 0.8);
+        }
+        
+        .footer-column a {
+            color: rgba(255, 255, 255, 0.7);
+        }
+        
+        .footer-column a:hover {
+            color: white;
+            text-decoration: none;
+        }
+        
+        .footer-bottom {
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            margin-top: 3rem;
+            padding-top: 1.5rem;
+            color: rgba(255, 255, 255, 0.6);
+        }
+        
+        /* Responsive */
+        @media (max-width: 768px) {
+            .hero h1 {
+                font-size: 2.5rem;
+            }
+            
+            .subtitle {
+                font-size: 1.2rem;
+            }
+            
+            .mcp-content {
+                grid-template-columns: 1fr;
+                gap: 2rem;
+            }
+            
+            .hero {
+                padding: 6rem 0 4rem;
+            }
+        }
+    </style>
 </head>
 <body>
     <header>
@@ -36,8 +387,9 @@
 
     <section class="hero">
         <div class="container">
+            <div class="hero-tagline">The Future of AI Agent Networks</div>
             <h1>NANDA Protocol</h1>
-            <p class="subtitle">An open protocol extending MCP for a decentralized network of AI agents, resources, and tools</p>
+            <p class="subtitle">An open protocol extending MCP for a decentralized network of AI agents, enabling sovereign discovery, authentication, and collaboration at global scale</p>
             <div class="cta-buttons">
                 <a href="introduction.html" class="btn primary">Get Started</a>
                 <a href="https://github.com/aidecentralized/nanda-servers" class="btn secondary">View on GitHub</a>
@@ -47,27 +399,83 @@
 
     <section class="features">
         <div class="container">
-            <h2>Key Features</h2>
+            <div class="section-title">
+                <h2>Key Features</h2>
+                <p>NANDA provides a comprehensive infrastructure for connecting autonomous AI agents in a secure, interoperable network</p>
+            </div>
             <div class="feature-grid">
                 <div class="feature-card">
                     <i class="fas fa-compass"></i>
                     <h3>Discovery</h3>
-                    <p>Mechanisms for AI agents to find each other in the network, regardless of scale or topology</p>
+                    <p>Semantic discovery mechanisms for AI agents to find each other in the network, regardless of scale or topology</p>
                 </div>
                 <div class="feature-card">
                     <i class="fas fa-handshake"></i>
                     <h3>Commerce</h3>
-                    <p>Seamless transactional framework for agents to exchange services and resources</p>
+                    <p>Seamless transactional framework for agents to exchange services and resources with verifiable accountability</p>
                 </div>
                 <div class="feature-card">
                     <i class="fas fa-shield-alt"></i>
                     <h3>Authentication</h3>
-                    <p>Robust verification protocols ensuring secure and trustworthy agent interactions</p>
+                    <p>Robust verification protocols ensuring secure and trustworthy agent interactions across organizational boundaries</p>
                 </div>
                 <div class="feature-card">
                     <i class="fas fa-star"></i>
                     <h3>Reputation</h3>
-                    <p>Verifiable agent-to-agent accountability through transparent reputation management</p>
+                    <p>Transparent agent-to-agent reputation tracking that builds trust networks and enables quality-based discovery</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="doc-overview">
+        <div class="container">
+            <div class="section-title">
+                <h2>Documentation Overview</h2>
+                <p>Comprehensive guides to help you implement NANDA in your AI projects</p>
+            </div>
+            <div class="doc-grid">
+                <div class="doc-card">
+                    <div class="doc-card-header">
+                        <h3><i class="fas fa-book-open"></i> Getting Started</h3>
+                    </div>
+                    <div class="doc-card-content">
+                        <p>Everything you need to understand the NANDA ecosystem and begin integration:</p>
+                        <ul class="doc-links">
+                            <li><a href="introduction.html">Introduction to NANDA</a></li>
+                            <li><a href="architecture.html">Architecture Overview</a></li>
+                            <li><a href="protocol.html">Protocol Specification</a></li>
+                            <li><a href="faq.html">Frequently Asked Questions</a></li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="doc-card">
+                    <div class="doc-card-header">
+                        <h3><i class="fas fa-code"></i> Developer Tools</h3>
+                    </div>
+                    <div class="doc-card-content">
+                        <p>Technical resources to implement NANDA in your applications:</p>
+                        <ul class="doc-links">
+                            <li><a href="sdk.html">SDK Documentation</a></li>
+                            <li><a href="registry.html">Registry API Reference</a></li>
+                            <li><a href="https://github.com/aidecentralized/nanda-servers/examples">Code Examples</a></li>
+                            <li><a href="host.html">Host Implementation Guide</a></li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="doc-card">
+                    <div class="doc-card-header">
+                        <h3><i class="fas fa-plug"></i> Integration</h3>
+                    </div>
+                    <div class="doc-card-content">
+                        <p>Guides for connecting to the NANDA ecosystem:</p>
+                        <ul class="doc-links">
+                            <li><a href="registry.html#host-registry">Hosting Your Own Registry</a></li>
+                            <li><a href="protocol.html#features">Protocol Features</a></li>
+                            <li><a href="hack.html">Hackathon Resources</a></li>
+                            <li><a href="architecture.html#network-topology">Network Topology</a></li>
+                        </ul>
+                    </div>
                 </div>
             </div>
         </div>
@@ -75,66 +483,27 @@
 
     <section class="mcp-integration">
         <div class="container">
-            <h2>Built on Model Context Protocol</h2>
             <div class="mcp-content">
                 <div class="mcp-info">
+                    <h2>Built on Model Context Protocol</h2>
                     <p>NANDA extends the <a href="https://modelcontextprotocol.io/introduction" target="_blank">Model Context Protocol (MCP)</a> from Anthropic, adding capabilities for large-scale decentralized agent networks.</p>
-                    <p>As the agentic AI landscape expands toward millions of distributed agents, resources, and tools, NANDA provides the infrastructure for discovery, commerce, authentication, and reputation at scale.</p>
+                    <p>As the agentic AI landscape expands toward millions of distributed agents, resources, and tools, NANDA provides the infrastructure for discovery, commerce, authentication, and reputation at scale—all while maintaining sovereignty and privacy.</p>
+                    <p>NANDA brings open interoperability standards to MCP, allowing agents from different developers and organizations to collaborate securely.</p>
                 </div>
                 <div class="mcp-diagram">
-                    <img src="assets/images/NANDA_mcp_relationship.svg" alt="NANDA extends MCP diagram" style="max-width: 100%; height: auto;" />
+                    <img src="assets/images/NANDA_mcp_relationship.svg" alt="NANDA extends MCP diagram" style="max-width: 100%; height: auto; border-radius: 12px; box-shadow: 0 15px 40px rgba(0, 0, 0, 0.1);" />
                     <p class="caption">NANDA extends MCP to enable agent-to-agent interactions in decentralized networks</p>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- <section class="getting-started">
-        <div class="container">
-            <h2>Getting Started</h2>
-            <div class="code-block">
-                <pre><code>
-// Install NANDA Client
-npm install @nanda-protocol/client
-
-// Set up a basic NANDA client
-import { NandaClient } from '@nanda-protocol/client';
-
-const client = new NandaClient();
-
-// Connect to the NANDA registry
-await client.connect({
-  registry: "https://registry.nanda-protocol.org",
-  credentials: {
-    publicKey: "YOUR_PUBLIC_KEY",
-    privateKey: "YOUR_PRIVATE_KEY"
-  }
-});
-
-// Discover agents with specific capabilities
-const agents = await client.registry.discoverAgents({
-  capabilities: ["text-generation", "image-recognition"],
-  minReputation: 4.5
-});
-
-// Authenticate and initiate a transaction with an agent
-const agent = agents[0];
-const session = await client.startSession(agent.id);
-const result = await session.executeTask({
-  task: "Generate a description of this image",
-  inputs: {
-    image: imageBuffer
-  },
-  paymentToken: "payment-token-xyz"
-});
-                </code></pre>
-            </div>
-        </div>
-    </section> -->
-
     <section class="use-cases">
         <div class="container">
-            <h2>Use Cases</h2>
+            <div class="section-title">
+                <h2>Use Cases</h2>
+                <p>NANDA enables a new generation of decentralized AI applications with secure agent discovery and collaboration</p>
+            </div>
             <div class="use-case-grid">
                 <div class="use-case-card">
                     <i class="fas fa-robot"></i>
