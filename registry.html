@@ -154,6 +154,7 @@
                     <li><a href="#verification">Verification Mechanism</a></li>
                     <li><a href="#analytics">Analytics & Reporting</a></li>
                     <li><a href="#webhooks">Webhooks & Notifications</a></li>
+                    <li><a href="#host-registry">Hosting a Registry</a></li>
                     <li><a href="#implementation">Implementation Guidelines</a></li>
                 </ul>
             </div>
@@ -494,6 +495,169 @@ const webhook = await nandaClient.webhooks.create({
   description: "Monitor verification status changes"
 });
                     </code></pre>
+                </div>
+                
+                <div class="info-box">
+                    <i class="fas fa-info-circle"></i>
+                    <div>
+                        <p>For detailed integration guidelines, consult the <a href="sdk.html">NANDA SDK documentation</a>, which provides examples and code samples for common registry operations.</p>
+                    </div>
+                </div>
+                
+                <h2 id="host-registry">Hosting a NANDA Registry</h2>
+                
+                <p>One of the core strengths of NANDA is its decentralized architecture. Any institution, company, or individual can host their own NANDA Registry instance, contributing to the resilience and diversity of the agent ecosystem.</p>
+                
+                <h3>Why Host Your Own Registry?</h3>
+                <ul>
+                    <li><strong>Data Sovereignty:</strong> Maintain control over your agent registry data within your own infrastructure</li>
+                    <li><strong>Customization:</strong> Tailor the registry to your specific industry needs or organizational requirements</li>
+                    <li><strong>Private Networks:</strong> Create closed agent ecosystems for enterprise or internal use cases</li>
+                    <li><strong>Geographic Distribution:</strong> Improve performance by hosting registry instances closer to your users</li>
+                    <li><strong>Resilience:</strong> Contribute to the decentralized nature of NANDA by adding an additional registry node</li>
+                </ul>
+                
+                <h3>Deployment Options</h3>
+                
+                <div class="component-grid">
+                    <div class="component-card">
+                        <h3><i class="fab fa-docker"></i> Docker Deployment (Recommended)</h3>
+                        <p>The fastest way to get a registry up and running with minimal configuration.</p>
+                        <h4>Prerequisites:</h4>
+                        <ul>
+                            <li>Docker and Docker Compose</li>
+                            <li>Domain name (for production deployment)</li>
+                            <li>SSL certificate (Let's Encrypt recommended)</li>
+                        </ul>
+                        <h4>Basic Setup:</h4>
+                        <ol>
+                            <li>Clone the repository:<br>
+                                <code>git clone https://github.com/aidecentralized/nanda-registry.git</code><br>
+                                <code>cd nanda-registry</code>
+                            </li>
+                            <li>Configure environment variables in <code>.env</code> file</li>
+                            <li>Customize Nginx configuration</li>
+                            <li>Build and run containers:<br>
+                                <code>docker-compose up -d</code>
+                            </li>
+                            <li>Create admin user:<br>
+                                <code>docker-compose exec web python manage.py createsuperuser</code>
+                            </li>
+                            <li>Set up SSL with Let's Encrypt</li>
+                        </ol>
+                    </div>
+                    
+                    <div class="component-card">
+                        <h3><i class="fab fa-aws"></i> AWS Elastic Beanstalk</h3>
+                        <p>Ideal for organizations already using AWS infrastructure with auto-scaling capabilities.</p>
+                        <h4>Prerequisites:</h4>
+                        <ul>
+                            <li>AWS Account</li>
+                            <li>AWS CLI configured</li>
+                            <li>EB CLI installed</li>
+                        </ul>
+                        <h4>Basic Setup:</h4>
+                        <ol>
+                            <li>Clone the repository</li>
+                            <li>Create an Elastic Beanstalk environment:<br>
+                                <code>eb init -p docker</code><br>
+                                <code>eb create nanda-registry-env</code>
+                            </li>
+                            <li>Set environment variables</li>
+                            <li>Deploy the application:<br>
+                                <code>eb deploy</code>
+                            </li>
+                            <li>Configure domain with Route 53</li>
+                        </ol>
+                    </div>
+                </div>
+                
+                <h3>Registry Configuration</h3>
+                <p>The NANDA Registry is highly configurable through environment variables and custom settings:</p>
+                
+                <h4>Key Environment Variables</h4>
+                <div class="code-block">
+                    <pre>
+# Django Core
+SECRET_KEY=your-secret-key
+DEBUG=False
+ALLOWED_HOSTS=your-domain.com
+
+# Database Settings
+DB_NAME=nanda_db
+DB_USER=postgres
+DB_PASSWORD=[strong-password]
+DB_HOST=db
+DB_PORT=5432
+
+# Redis & Celery
+REDIS_URL=redis://redis:6379/0
+CELERY_BROKER_URL=redis://redis:6379/1
+CELERY_RESULT_BACKEND=redis://redis:6379/2
+
+# Email Configuration
+EMAIL_HOST=smtp.example.com
+EMAIL_PORT=587
+EMAIL_HOST_USER=your-email@example.com
+EMAIL_HOST_PASSWORD=your-email-password
+EMAIL_USE_TLS=True
+DEFAULT_FROM_EMAIL=noreply@your-domain.com
+
+# Frontend URL
+FRONTEND_URL=https://your-domain.com</pre>
+                </div>
+                
+                <h4>Advanced Settings</h4>
+                <p>Additional settings can be configured by editing <code>mcp_nexus/settings.py</code>:</p>
+                <ul>
+                    <li><code>VERIFICATION_TOKEN_EXPIRY</code>: Duration for verification tokens</li>
+                    <li><code>VERIFICATION_CHECK_INTERVAL</code>: Interval for server health checks</li>
+                    <li><code>ANALYTICS_RETENTION_DAYS</code>: Days to retain analytics data</li>
+                </ul>
+                
+                <h3>Maintaining Your Registry</h3>
+                
+                <div class="component-grid">
+                    <div class="component-card">
+                        <h3><i class="fas fa-database"></i> Database Backups</h3>
+                        <p>Set up regular database backups to prevent data loss:</p>
+                        <p>For Docker deployment:</p>
+                        <code>docker-compose exec db pg_dump -U postgres mcp_nexus > backup_$(date +%Y%m%d).sql</code>
+                        <p>For AWS deployment:</p>
+                        <code>aws rds create-db-snapshot --db-instance-identifier your-db-identifier --db-snapshot-identifier snapshot-name</code>
+                    </div>
+                    
+                    <div class="component-card">
+                        <h3><i class="fas fa-sync"></i> Updates</h3>
+                        <p>Keep your registry up to date with the latest features and security patches:</p>
+                        <p>For Docker deployment:</p>
+                        <code>git pull<br>docker-compose down<br>docker-compose build<br>docker-compose up -d</code>
+                        <p>For AWS deployment:</p>
+                        <code>git pull<br>eb deploy</code>
+                    </div>
+                    
+                    <div class="component-card">
+                        <h3><i class="fas fa-shield-alt"></i> Security Best Practices</h3>
+                        <ul>
+                            <li>Regularly update dependencies</li>
+                            <li>Set strong passwords for database and admin users</li>
+                            <li>Keep <code>DEBUG=False</code> in production</li>
+                            <li>Configure proper HTTPS</li>
+                            <li>Implement rate limiting for public APIs</li>
+                            <li>Consider adding WAF protection</li>
+                        </ul>
+                    </div>
+                </div>
+                
+                <div class="info-box">
+                    <i class="fas fa-lightbulb"></i>
+                    <div>
+                        <p>When your registry is running, comprehensive API documentation is available at:</p>
+                        <ul>
+                            <li>Swagger UI: <code>/api/v1/schema/swagger-ui/</code></li>
+                            <li>ReDoc: <code>/api/v1/schema/redoc/</code></li>
+                        </ul>
+                    </div>
                 </div>
                 
                 <h2 id="implementation">Implementation Guidelines</h2>
