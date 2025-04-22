@@ -6,6 +6,41 @@
     <title>Protocol Specification - NANDA Protocol</title>
     <link rel="stylesheet" href="assets/css/styles.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <style>
+        .code-block {
+            background: #f8f8f8;
+            border: 1px solid #e1e4e8;
+            border-radius: 6px;
+            padding: 16px;
+            margin: 20px 0;
+            overflow-x: auto;
+            font-family: 'SFMono-Regular', Consolas, 'Liberation Mono', Menlo, monospace;
+            line-height: 1.45;
+            font-size: 14px;
+            color: #24292e;
+        }
+        
+        .protocol-example {
+            background: #f0f5ff;
+            border-left: 4px solid var(--mit-red);
+            padding: 15px;
+            margin: 20px 0;
+            border-radius: 0 6px 6px 0;
+        }
+        
+        .message-type {
+            background: #f5f5f5;
+            border-radius: 4px;
+            padding: 12px 20px;
+            margin: 15px 0;
+            border-left: 3px solid var(--mit-red);
+        }
+        
+        .message-type h4 {
+            margin-top: 0;
+            color: var(--mit-red);
+        }
+    </style>
 </head>
 <body>
     <header>
@@ -25,7 +60,6 @@
                         <li><a href="registry.html">Registry</a></li>
                         <li><a href="sdk.html">SDK</a></li>
                         <li><a href="host.html">Host</a></li>
-                        <li><a href="hack.html">Hack</a></li>
                         <li><a href="faq.html">FAQ</a></li>
                         <li><a href="https://github.com/aidecentralized/nanda-servers" target="_blank">GitHub</a></li>
                     </ul>
@@ -40,16 +74,18 @@
                 <h3>On This Page</h3>
                 <ul>
                     <li><a href="#overview">Protocol Overview</a></li>
-                    <li><a href="#features">Key Features</a></li>
-                    <li><a href="#documentation">Documentation Status</a></li>
-                    <li><a href="#collaboration">Join Development</a></li>
+                    <li><a href="#message-types">Message Types</a></li>
+                    <li><a href="#handshake">Protocol Handshake</a></li>
+                    <li><a href="#key-methods">Key Methods</a></li>
+                    <li><a href="#protocol-example">Protocol Example</a></li>
+                    <li><a href="#status">Status & Next Steps</a></li>
                 </ul>
             </div>
             
             <div class="main-content">
                 <h1 id="overview">NANDA Protocol</h1>
                 
-                <p class="intro-text">An open protocol extending MCP for a decentralized network of AI agents, resources, and tools. The NANDA Protocol provides a comprehensive framework for enabling decentralized AI agent networks to discover, authenticate, transact, and build reputation with each other. Built as an extension to the Model Context Protocol (MCP), NANDA adds the infrastructure needed for large-scale agent ecosystems.</p>
+                <p class="intro-text">The NANDA Protocol is the language that NANDA Nodes use to talk to each other and to the registry. It is built as an extension of JSON-RPC 2.0, aligning with MCP's message format. If you are familiar with JSON-RPC or MCP's schema, NANDA's messages will look very similar – mostly adding new methods and data structures to support networking features.</p>
 
                 <div class="status-badge">
                     <i class="fas fa-code-branch"></i>
@@ -90,45 +126,177 @@
                     </div>
                 </div>
 
+                <h2 id="message-types">Message Types</h2>
+                <p>At a high level, NANDA messages fall into the same categories as MCP:</p>
+                
+                <div class="message-type">
+                    <h4>Requests</h4>
+                    <p>An agent sends a request to another agent or service to perform some action (e.g., "do X and return the result"). Every request has a method name and may have params. For example, methods defined by NANDA include things like "ping" (a health check), "initialize" (handshake on a new connection), "resources/list" (query the registry for available resources), etc.</p>
+                </div>
+                
+                <div class="message-type">
+                    <h4>Responses</h4>
+                    <p>The reply to a request, containing either a result (on success) or an error. The protocol uses JSON-RPC's convention with matching request IDs.</p>
+                </div>
+                
+                <div class="message-type">
+                    <h4>Notifications</h4>
+                    <p>One-way messages that don't expect a response. These are used for events or updates, such as progress updates or cancellations. NANDA uses notifications for things like "notifications/initialized" (to signal an agent has finished setup) or "notifications/progress" (to report intermediate results).</p>
+                </div>
+
+                <h2 id="handshake">Protocol Version and Handshake</h2>
+                <p>NANDA 1.0 Alpha uses a specific schema version (currently v1.0-alpha). When a connection is established between two NANDA-speaking entities, they perform an initialize handshake similar to MCP's. This exchange allows both sides to declare their capabilities and versions:</p>
+                
+                <div class="code-block">
+                    <pre>// Simplified excerpt from NANDA schema
+export interface InitializeRequest extends Request {
+  method: "initialize";
+  params: {
+    mcpVersion: string;       // Latest MCP version supported by the client
+    nandaVersion?: string;    // (Optional) NANDA version if the client speaks NANDA
+    clientCapabilities?: any; // Details about what the client can do (MCP standard)
+    // ... possibly authentication info or certificate
+  };
+}
+
+export interface InitializeResult extends Result {
+  result: {
+    serverName: string;
+    serverVersion: string;
+    serverCapabilities: any; // What the server can do
+    // If NANDA, it might also include a certificate or trust info, etc.
+  };
+}</pre>
+                </div>
+                
+                <p>In the above snippet, a client begins by sending an "initialize" request. It advertises the MCP version it uses (for compatibility) and the NANDA version if it knows it. The server responds with details like its name, supported versions, and capabilities.</p>
+                
+                <p>If both sides support NANDA, this is where they might also exchange security credentials (for example, a server could send back a certificate chain to prove its identity, and the client could verify it via the registry's Verification Service).</p>
+                
+                <p>After initialization, the connection is ready for normal operations. If one side doesn't support NANDA, it would ignore NANDA-specific fields – thus an MCP-only client and a NANDA server could still establish a baseline MCP connection.</p>
+
+                <h2 id="key-methods">Key Message Types</h2>
+                <p>NANDA extends the protocol with a variety of new methods to facilitate its features. Some important ones include:</p>
+                
+                <div class="message-type">
+                    <h4>Discovery and Listing</h4>
+                    <p>An agent can query the registry or another agent for available resources. For example, to list resources registered in the network, a client can send a "resources/list" request to the Registry service. The schema defines this as:</p>
+                    
+                    <div class="code-block">
+                        <pre>export interface ListResourcesRequest extends PaginatedRequest {
+  method: "resources/list";
+  params?: {
+    // Optional filters could go here, e.g., by type or tag
+  };
+}
+
+export interface ListResourcesResult extends PaginatedResult {
+  result: {
+    resources: Resource[];  // Array of resource/agent descriptors
+    nextPage?: string;      // Cursor for pagination (if not all results sent)
+  };
+}</pre>
+                    </div>
+                    
+                    <p>The Resource objects in the response contain metadata about each agent or service (such as its ID, name, description, capabilities, and network address). A client would use this information to decide whom to connect to next. Pagination is supported for scalability (so a large directory can be fetched in parts).</p>
+                    
+                    <p><strong>Example:</strong> A client sends <code>{"jsonrpc":"2.0","id":1,"method":"resources/list","params":{"type":"agent","tag":"translation"}}</code>. The registry might return a list of agents that are translation services, including their IDs and endpoints.</p>
+                </div>
+                
+                <div class="message-type">
+                    <h4>Ping/Pong (Health Checks)</h4>
+                    <p>To ensure a connection or an agent is alive, NANDA defines a simple "ping" method. Any agent can send a ping request, and the target should respond with a corresponding pong (which in JSON-RPC terms is just an empty result or a simple acknowledgment). This is useful for network management, allowing agents to monitor connectivity or measure latency.</p>
+                    
+                    <div class="code-block">
+                        <pre>export interface PingRequest extends Request {
+  method: "ping";
+  params?: {};  // no special params needed
+}
+export interface PingResult extends Result {
+  result: { pong: boolean; };
+}</pre>
+                    </div>
+                    
+                    <p>Typically, the result might just be <code>{ pong: true }</code> or even an empty object to signify the agent is responsive.</p>
+                </div>
+                
+                <div class="message-type">
+                    <h4>Progress and Cancellation</h4>
+                    <p>Long-running tasks initiated via NANDA can send progress notifications. For example, if Agent A asks Agent B to perform a complex data analysis, Agent B might periodically send notifications/progress with a percentage or status message. The protocol supports associating these with the original request via a progress token. Likewise, if Agent A no longer needs the result, it can send a notifications/cancelled message to politely ask Agent B to stop the task.</p>
+                </div>
+                
+                <div class="message-type">
+                    <h4>Certificates and Trust</h4>
+                    <p>To support the Authentication pillar, the protocol includes structures for exchanging identity info. This might not be a single method, but rather part of the data in initialization or in registry interactions. The schema defines types like Certificate, CertificateChain, and DistinguishedName – indicating NANDA uses a certificate-based approach (similar to TLS) for identity.</p>
+                    
+                    <p>An agent's certificate could be passed along during the handshake or retrieved from the registry. While the details are complex, as a developer you should know that NANDA has built-in hooks for verifying who you're talking to. (In practice, an agent might sign its messages, and the receiving agent checks the signature against the sender's certificate obtained via the registry.)</p>
+                </div>
+                
+                <div class="message-type">
+                    <h4>Commerce Transactions</h4>
+                    <p>In the current 1.0 Alpha, the commerce aspect may be mostly off-protocol (e.g., an agent could use an out-of-band payment or a predefined agreement). However, the groundwork is being laid. The presence of objects like Coupon in the schema suggests future versions will include dedicated message types for handling payments or credits as part of the agent interactions. For example, one can imagine a method "commerce/offer" or "commerce/settle" in future revisions.</p>
+                </div>
+
+                <h2 id="protocol-example">Protocol Example: Agent Interaction</h2>
+                <p>To tie it together, let's walk through a simple interaction using the NANDA Protocol:</p>
+                
+                <div class="protocol-example">
+                    <ol>
+                        <li>
+                            <strong>Initialization:</strong> Agent A connects to Agent B (having discovered B via the registry). A sends an initialize request with its supported versions and identity info. B responds with its info (possibly including a certificate). Both now consider the connection established and trusted (if all checks out).
+                        </li>
+                        <li>
+                            <strong>Service Request:</strong> Agent A wants B to perform a task – say, translate a document. A sends <code>{"method": "document/translate", "params": {"text": "...", "toLang":"es"}, "id": 42}</code>. This could be a standard MCP method if translation was a "tool", or a custom method defined by B's service.
+                        </li>
+                        <li>
+                            <strong>Progress:</strong> B starts processing and streams progress: <code>{"method":"notifications/progress","params":{"id":42,"stage":"50% done"}}</code> as a notification. A updates some UI or internal state with this info.
+                        </li>
+                        <li>
+                            <strong>Result:</strong> B completes the task and sends the response: <code>{"id":42, "result": {"translatedText": "..."}}</code>. Agent A receives the result and uses it.
+                        </li>
+                        <li>
+                            <strong>Follow-up or Commerce:</strong> If this was a paid service, Agent B might now issue a <code>{"method":"commerce/invoice","params":{"amount":5.0,"currency":"USD"}}</code> (in a future protocol version) or otherwise expect a payment. Agent A would then confirm or pay through a separate channel or a signed message. In the current alpha, such details would be negotiated off-line or via application-level convention, but future NANDA versions aim to support it in-protocol.
+                        </li>
+                    </ol>
+                </div>
+                
+                <p>Throughout this exchange, the underlying JSON messages conform to the schema defined in the NANDA spec. Developers can use the NANDA SDKs to generate and parse these messages, so you typically won't construct JSON by hand. Instead, you'll call a client library (for example, in Python or JavaScript) to send a list_resources() or ping() and handle the returned objects.</p>
+
+                <h2 id="status">Status and Next Steps</h2>
+                <p>NANDA Protocol v1.0 Alpha – as indicated by the version badge – is the first public iteration and is under active development. The core messaging infrastructure is in place, and basic discovery and authentication flows work. Upcoming releases will likely flesh out the commerce workflows and add more robust trust/reputation exchanges based on community feedback.</p>
+                
                 <div class="documentation-section" id="documentation">
-                    <h2>Documentation Status</h2>
-                    <p>We're currently finalizing the NANDA Protocol Specification. The complete documentation will be available shortly. Here's what to expect:</p>
+                    <h2>Protocol Documentation</h2>
+                    <p>If you're interested in the nitty-gritty of the protocol:</p>
                     
                     <div class="spec-checklist">
                         <ul>
                             <li>
-                                <i class="fas fa-check-circle"></i> 
+                                <i class="fas fa-file-code"></i> 
                                 <div>
-                                    <h4>Message Formats</h4>
-                                    <p>Detailed specifications for agent interaction message formats</p>
+                                    <h4>Full Specification</h4>
+                                    <p>Check out the <a href="https://github.com/aidecentralized/specification/blob/main/schema/2025-03-26/schema.ts" target="_blank">complete TypeScript schema</a> on GitHub, which defines all types and methods.</p>
                                 </div>
                             </li>
                             <li>
-                                <i class="fas fa-check-circle"></i>
+                                <i class="fas fa-comments"></i>
                                 <div>
-                                    <h4>Service Discovery</h4>
-                                    <p>Protocols for agent discovery and capability negotiation</p>
+                                    <h4>Community Input</h4>
+                                    <p>Join the community discussions on our Discord or GitHub to suggest improvements or use cases.</p>
                                 </div>
                             </li>
                             <li>
-                                <i class="fas fa-check-circle"></i>
+                                <i class="fas fa-code"></i>
                                 <div>
-                                    <h4>Authentication & Trust</h4>
-                                    <p>Security frameworks for establishing and maintaining trust</p>
+                                    <h4>Developer Resources</h4>
+                                    <p>The <a href="sdk.html">SDK documentation</a> provides client libraries to simplify working with the protocol.</p>
                                 </div>
                             </li>
                             <li>
-                                <i class="fas fa-check-circle"></i>
-                                <div>
-                                    <h4>MCP Compatibility</h4>
-                                    <p>Guidelines for ensuring compatibility with the MCP ecosystem</p>
-                                </div>
-                            </li>
-                            <li>
-                                <i class="fas fa-check-circle"></i>
+                                <i class="fas fa-book"></i>
                                 <div>
                                     <h4>Implementation Guides</h4>
-                                    <p>Best practices and reference implementations</p>
+                                    <p>Practical examples and best practices for implementing NANDA-compatible agents.</p>
                                 </div>
                             </li>
                         </ul>

@@ -1,3 +1,11 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Architecture - NANDA Protocol</title>
+    <link rel="stylesheet" href="assets/css/styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
     <style>
         /* Custom styles for architecture diagrams */
         .architecture-diagram img,
@@ -18,14 +26,7 @@
             margin-top: 10px;
             color: #555;
         }
-    </style><!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Architecture - NANDA Protocol</title>
-    <link rel="stylesheet" href="assets/css/styles.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    </style>
 </head>
 <body>
     <header>
@@ -45,7 +46,6 @@
                         <li><a href="registry.html">Registry</a></li>
                         <li><a href="sdk.html">SDK</a></li>
                         <li><a href="host.html">Host</a></li>
-                        <li><a href="hack.html">Hack</a></li>
                         <li><a href="faq.html">FAQ</a></li>
                         <li><a href="https://github.com/aidecentralized/nanda-servers" target="_blank">GitHub</a></li>
                     </ul>
@@ -60,10 +60,10 @@
                 <h3>On This Page</h3>
                 <ul>
                     <li><a href="#overview">Architecture Overview</a></li>
-                    <li><a href="#mcp-extension">MCP Extension</a></li>
-                    <li><a href="#core-components">Core Components</a></li>
+                    <li><a href="#nanda-nodes">NANDA Nodes</a></li>
+                    <li><a href="#nanda-registry">NANDA Registry</a></li>
+                    <li><a href="#nanda-protocol">NANDA Protocol</a></li>
                     <li><a href="#network-topology">Network Topology</a></li>
-                    <li><a href="#system-architecture">System Architecture</a></li>
                     <li><a href="#implementation">Implementation Guidelines</a></li>
                 </ul>
             </div>
@@ -71,76 +71,132 @@
             <div class="main-content">
                 <h1 id="overview">NANDA Architecture</h1>
                 
-                <p class="intro-text">The NANDA Architecture provides a comprehensive framework for enabling decentralized networks of AI agents, resources, and tools to discover, authenticate, transact, and build reputation with each other. Built as an extension to the Model Context Protocol (MCP), NANDA adds the necessary infrastructure for large-scale agent ecosystems.</p>
+                <p class="intro-text">The NANDA Architecture defines how various components—agents, services, and infrastructure—interact in a decentralized network. At a high level, NANDA transforms isolated AI systems into a connected ecosystem through three key layers: Protocol, Infrastructure, and Developer Tools.</p>
                 
                 <div class="architecture-diagram">
-                    <img src="assets/images/NANDA_arch.png" alt="NANDA Architecture Overview Diagram" style="max-width: 100%; height: auto;" />
-                    <p class="caption">The NANDA Architecture showing the relationship between agents, infrastructure services, and the MCP foundation</p>
+                    <img src="assets/images/NANDA_arch_v2.png" alt="NANDA Architecture Transformation" style="max-width: 100%; height: auto;" />
+                    <p class="caption">NANDA transforms isolated AI systems into a connected ecosystem through three key layers: Protocol (certification, identity, communication, reputation), Infrastructure (identity registry, interaction database, NANDA host), and Developer Tools (SDKs, testing, client/server examples).</p>
                 </div>
                 
-                <h2 id="mcp-extension">Extending the Model Context Protocol</h2>
-                <p>NANDA is designed as an extension to Anthropic's Model Context Protocol (MCP), enhancing it with capabilities for decentralized agent networks:</p>
+                <p>As illustrated in the diagram, NANDA provides a comprehensive framework that bridges the gap between disconnected AI systems with limited capabilities (left) and a connected ecosystem of collaborative AI agents (right). The architecture consists of three primary layers:</p>
                 
-                <div class="mcp-extension-grid">
-                    <div class="mcp-extension-card">
-                        <h3>MCP Foundation</h3>
-                        <p>Model Context Protocol provides the foundation for single-agent interactions with tools and resources.</p>
-                        <ul>
-                            <li>Standardized tool calling interface</li>
-                            <li>Structured data interchange formats</li>
-                            <li>Resource access and utilization patterns</li>
-                        </ul>
+                <div class="layer-grid">
+                    <div class="layer-card">
+                        <h3>Protocol Layer</h3>
+                        <p>Forms the foundation of NANDA, handling certification, identity, communication, and reputation. This layer defines how agents authenticate each other, communicate securely, and build trusted relationships over time. The protocol extends existing standards like MCP (Model Context Protocol) to support multi-agent interactions.</p>
                     </div>
                     
-                    <div class="mcp-extension-card">
-                        <h3>NANDA Extensions</h3>
-                        <p>NANDA extends MCP with protocols and infrastructure for multi-agent networks.</p>
-                        <ul>
-                            <li>Agent discovery mechanisms</li>
-                            <li>Commerce and transaction frameworks</li>
-                            <li>Authentication and identity verification</li>
-                            <li>Reputation tracking and management</li>
-                        </ul>
+                    <div class="layer-card">
+                        <h3>Infrastructure Layer</h3>
+                        <p>Provides the operational backbone with identity registry, interaction database, and NANDA host services. This layer enables agent discovery, manages persistent data about agent capabilities and interactions, and offers hosting environments for agents to operate within the network.</p>
+                    </div>
+                    
+                    <div class="layer-card">
+                        <h3>Developer Tools Layer</h3>
+                        <p>Offers SDKs, testing frameworks, and client/server examples to simplify integration with the NANDA ecosystem. This layer makes it easier for developers to build, test, and deploy agents that can participate in the network.</p>
                     </div>
                 </div>
                 
-                <h2 id="core-components">Core Components</h2>
-                <p>The NANDA Architecture consists of several core components that work together to enable decentralized AI networks:</p>
+                <p>The key differentiators of NANDA shown at the bottom of the diagram highlight its decentralized, scalable, research-backed, trustworthy, and interconnected nature. These qualities enable NANDA to support a vibrant ecosystem of collaborative AI agents with diverse capabilities.</p>
+                
+                <h2 id="nanda-nodes">NANDA Nodes (Agents and Services)</h2>
+                <p>In the NANDA architecture, nodes represent the individual agents and services that participate in the network. Each node can function as both a client (consuming services) and a server (providing services), allowing for flexible peer-to-peer interactions. This dual role capability creates a network where agents can seamlessly switch between requesting and providing services.</p>
                 
                 <div class="component-grid">
                     <div class="component-card">
-                        <h3>Agents (M+N Clients)</h3>
-                        <p>AI agents that participate in the network, offering services and consuming resources. These agents implement the NANDA protocol to interact with other network participants.</p>
+                        <h3>Client Role</h3>
+                        <p>When functioning as a client, a node initiates requests to other agents or services. For example, an AI assistant might act as a client when it needs to query a specialized knowledge base or use a computation service. Clients can discover available services through the registry, establish connections, and negotiate terms of service.</p>
                     </div>
                     
                     <div class="component-card">
-                        <h3>Services (M+N Servers)</h3>
-                        <p>Specialized service providers that offer specific capabilities to agents, such as data processing, computation, or domain-specific functions.</p>
-                    </div>
-                    
-                    <div class="component-card">
-                        <h3>Registry</h3>
-                        <p>A directory service that catalogs available agents, services, and resources, enabling discovery across the network. The registry also maintains verification and reputation information.</p>
-                    </div>
-                    
-                    <div class="component-card">
-                        <h3>Resources</h3>
-                        <p>Data, tools, or other assets that can be accessed and utilized by agents through the NANDA protocol. Resources can include datasets, APIs, computational tools, and more.</p>
+                        <h3>Server Role</h3>
+                        <p>When functioning as a server, a node offers capabilities to other agents in the network. These capabilities can include AI expertise, access to specialized data, computational resources, or domain-specific tools. Servers register their capabilities with the NANDA Registry, making them discoverable by potential clients.</p>
                     </div>
                 </div>
                 
-                <h2 id="network-topology">Network Topology</h2>
-                <p>NANDA supports multiple network configurations to accommodate different deployment scenarios.</p>
+                <p>The boundary between clients and servers is fluid in NANDA. A single agent might provide services to other agents (acting as a server) while also consuming services from elsewhere in the network (acting as a client). For instance, a research assistant agent could query multiple data sources as a client, process the information, and then serve synthesized insights to other agents as a server.</p>
                 
-                <!-- <div class="network-diagram">
-                    <img src="assets/images/NANDA_arch.png" alt="NANDA Network Topology Diagram" style="max-width: 100%; height: auto;" />
-                    <p class="caption">NANDA supports various network topologies, from centralized to fully distributed configurations</p>
-                </div> -->
+                <p>NANDA is designed to be backward compatible with the Model Context Protocol (MCP). This means existing MCP-compliant tools and services can be integrated into the NANDA ecosystem with minimal modification. Agents using NANDA can discover and interact with both specialized NANDA-native services and legacy MCP tools, creating a seamless upgrade path for existing AI applications.</p>
+                
+                <h2 id="nanda-registry">NANDA Registry (Discovery & Trust Infrastructure)</h2>
+                <p>While agents communicate directly with each other for most interactions, the NANDA Registry provides the infrastructure that enables initial discovery and trust establishment. The registry is a crucial component that makes large-scale networking of agents feasible and secure.</p>
+                
+                <div class="architecture-diagram">
+                    <img src="assets/images/NANDA_system_arch.png" alt="NANDA Registry Architecture" style="max-width: 100%; height: auto;" />
+                    <p class="caption">NANDA Registry Architecture – a collection of core services that enable decentralized discovery, authentication, and verification. The registry maintains a catalog of agents and services (Server Registry and Discovery), handles identity and access management (Authentication and Verification services), tracks usage and performance (Analytics), and notifies subscribers of events (Webhook Service).</p>
+                </div>
+                
+                <p>The NANDA Registry provides six core services that work together to facilitate agent discovery, authentication, verification, and reputation management:</p>
+                
+                <div class="layers-accordion">
+                    <div class="layer">
+                        <div class="layer-header">
+                            <h3>Core Registry Services</h3>
+                            <i class="fas fa-chevron-down"></i>
+                        </div>
+                        <div class="layer-content">
+                            <ul>
+                                <li><strong>Server Registry Service:</strong> A directory of available agents and services. When a new NANDA server comes online, it registers here with its metadata (name, capabilities, endpoint address, owner info, etc.) and receives a unique ID. Agents query the registry to get a list of services matching certain criteria. This is the heart of discovery in NANDA.</li>
+                                <li><strong>Discovery Service:</strong> A specialized search engine for the agent network. It can perform semantic searches or apply filters (by capability tags, service type, etc.) to help an agent find the most relevant partner. For example, an agent could search for "image analysis service" and the Discovery Service would return matching agents registered in the network.</li>
+                                <li><strong>Authentication Service:</strong> Manages identity verification and access control. Agents may have cryptographic keys or certificates; the Authentication Service helps validate these identities (e.g. checking a certificate's signature or if it's issued by a trusted authority). It can also manage login/auth flows for agents that require it and enforce permissions (who is allowed to call what).</li>
+                                <li><strong>Verification Service:</strong> Provides credential and capability verification. This service can certify that a given agent actually has certain attributes or has been vetted (for example, it might verify that "Agent X is licensed to provide medical advice"). It can also validate proofs that an agent presents. Essentially, it's about trust – ensuring claims are real.</li>
+                                <li><strong>Analytics Service:</strong> Gathers usage data and performance metrics from the network. Over time, this data contributes to each agent's reputation. For instance, how many successful transactions an agent completed, its uptime, average response time, etc., can be logged. The analytics can be aggregated into scores or insights that others use to decide if they want to interact with that agent.</li>
+                                <li><strong>Webhook Service:</strong> Allows external systems or client applications to receive event notifications. Agents or tools can subscribe to certain events (like "notify me when a new service offering X appears" or "when Agent Y's status changes"). The Webhook service pushes these events out, enabling real-time updates and integrations.</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                
+                <p>All these services together form the "registry," which can be implemented in a decentralized way (e.g., multiple registry nodes syncing via a blockchain or distributed database, or each community running their own registry that interconnects). The registry's data layer (such as a PostgreSQL database in one implementation) stores the persistent information about registrations, reputations, etc.</p>
+                
+                <h3>Using the Registry</h3>
+                <p>When an agent (server) starts up, it registers itself, providing details like its name, the methods it offers, maybe pricing info if it charges for service, and a proof of identity. The registry may verify ownership (perhaps via the Verification Service) and then list the agent as available.</p>
+                <p>Other agents (clients) query the registry or discovery service with their needs, get back a list of candidates, then use the info to connect directly via NANDA Protocol. After interactions, they might report back outcomes or feedback to the registry/analytics, which updates reputations.</p>
+                <p>NANDA is designed such that if the registry is unavailable, agents could still operate in a peer-to-peer mode (for example, using cached information or known addresses). However, the registry greatly enhances scalability by acting as a knowledge base of the network's state.</p>
+                
+                <h3>Example Integration: NANDA Host</h3>
+                <p>The NANDA Host interface provides a user-friendly way to interact with the NANDA ecosystem. This frontend application connects to the NANDA Registry and enables users to leverage the power of networked AI agents for various tasks.</p>
+                
+                <div class="architecture-diagram">
+                    <img src="assets/images/nanda_host_frontend.png" alt="NANDA Host Frontend" style="max-width: 100%; height: auto;" />
+                    <p class="caption">The NANDA Host interface allows users to interact with AI agents that leverage the NANDA Protocol to access a network of specialized tools and capabilities.</p>
+                </div>
+                
+                <p>The NANDA Host can dynamically interface with the registry to discover and assemble teams of specialized agents based on the task at hand. For example, when a user asks a question, the host can:
+                </p>
+                <ul>
+                    <li>Analyze the user's request to determine what capabilities are needed</li>
+                    <li>Query the NANDA Registry to find the most suitable agents with those capabilities</li>
+                    <li>Dynamically build a team of agents to collaborate on solving the problem</li>
+                    <li>Coordinate the workflow between these agents, managing authentication and data exchange</li>
+                    <li>Present a unified response to the user while maintaining an activity log for transparency</li>
+                </ul>
+                
+                <p>This approach allows the NANDA Host to solve complex problems by bringing together specialized expertise from across the agent network, without requiring users to manually identify and connect to individual agents. As the ecosystem grows, the same frontend can access an increasingly powerful network of capabilities.</p>
+                
+                <h2 id="nanda-protocol">NANDA Protocol</h2>
+                <p>The NANDA Protocol is the language that nodes use to talk to each other and to the registry. It is built as an extension of JSON-RPC 2.0, aligning with MCP's message format. If you are familiar with JSON-RPC or MCP's schema, NANDA's messages will look very similar – mostly adding new methods and data structures to support networking features.</p>
+                
+                <p>NANDA supports two primary communication patterns:</p>
+                <ul>
+                    <li><strong>Agent-Agent Protocol:</strong> Enables direct peer-to-peer communication between agents. This allows for decentralized collaboration without requiring a central hub for every interaction. Agents can directly invoke methods, request services, and share data with each other.</li>
+                    <li><strong>Agent-Infra Protocol:</strong> Facilitates communication between agents and infrastructure services like the registry. This pattern is used for tasks such as agent registration, capability discovery, credential verification, and reputation queries.</li>
+                </ul>
+                
+                <p>At a high level, NANDA messages fall into the same categories as MCP:</p>
+                <ul>
+                    <li><strong>Requests:</strong> An agent sends a request to another agent or service to perform some action (e.g., "do X and return the result"). Every request has a method name and may have params. For example, methods defined by NANDA include things like "ping" (a health check), "initialize" (handshake on a new connection), "resources/list" (query the registry for available resources), etc.</li>
+                    <li><strong>Responses:</strong> The reply to a request, containing either a result (on success) or an error. The protocol uses JSON-RPC's convention with matching request IDs.</li>
+                    <li><strong>Notifications:</strong> One-way messages that don't expect a response. These are used for events or updates, such as progress updates or cancellations. NANDA uses notifications for things like "notifications/initialized" (to signal an agent has finished setup) or "notifications/progress" (to report intermediate results).</li>
+                </ul>
+                
+                <h2 id="network-topology">Network Topology</h2>
+                <p>NANDA supports multiple network configurations to accommodate different deployment scenarios and organizational needs. The flexible architecture allows for various topologies ranging from fully centralized to completely decentralized approaches.</p>
                 
                 <div class="topology-types">
                     <div class="topology-type">
-                        <h3>A2A Protocol (Agent-to-Agent)</h3>
-                        <p>Direct peer-to-peer communication between agents, allowing for decentralized collaboration without intermediaries. A2A connections enable:</p>
+                        <h3>Agent-Agent Connections</h3>
+                        <p>Direct peer-to-peer communication between agents, allowing for decentralized collaboration without intermediaries. Agent-agent connections enable:</p>
                         <ul>
                             <li>Direct service negotiations between agents</li>
                             <li>Peer-to-peer data exchange</li>
@@ -150,8 +206,8 @@
                     </div>
                     
                     <div class="topology-type">
-                        <h3>A2I Protocol (Agent-to-Infrastructure)</h3>
-                        <p>Communication between agents and infrastructure services like registries and verification services. A2I connections provide:</p>
+                        <h3>Agent-Infra Connections</h3>
+                        <p>Communication between agents and infrastructure services like registries and verification services. Agent-infra connections provide:</p>
                         <ul>
                             <li>Agent discovery and capability advertising</li>
                             <li>Verification and authentication services</li>
@@ -161,101 +217,7 @@
                     </div>
                 </div>
                 
-                <h2 id="system-architecture">System Architecture</h2>
-                <p>The NANDA system architecture is organized into several functional layers:</p>
-                
-                <div class="architecture-diagram">
-                    <img src="assets/images/NANDA_system_arch.png" alt="NANDA System Architecture Diagram" style="max-width: 100%; height: auto;" />
-                    <p class="caption">The NANDA System Architecture showing the relationships between core services and components</p>
-                </div>
-                
-                <div class="layers-accordion">
-                    <div class="layer">
-                        <div class="layer-header">
-                            <h3>1. NANDA Core Services</h3>
-                            <i class="fas fa-chevron-down"></i>
-                        </div>
-                        <div class="layer-content">
-                            <p>The central infrastructure services that enable the NANDA ecosystem:</p>
-                            <ul>
-                                <li><strong>API Layer:</strong> Built on the MCP framework, providing the interface for all system interactions</li>
-                                <li><strong>Server Registry Service:</strong> Maintains a directory of available servers, agents, and resources</li>
-                                <li><strong>Authentication Service:</strong> Handles identity verification and access control</li>
-                                <li><strong>Verification Service:</strong> Validates capabilities and ensures compliance with protocol standards</li>
-                                <li><strong>Analytics Service:</strong> Collects and processes usage and performance metrics</li>
-                                <li><strong>Discovery Service:</strong> Enables dynamic discovery of agents and resources</li>
-                                <li><strong>Webhook Service:</strong> Provides event notification and callback mechanisms</li>
-                            </ul>
-                        </div>
-                    </div>
-                    
-                    <div class="layer">
-                        <div class="layer-header">
-                            <h3>2. Background Processing</h3>
-                            <i class="fas fa-chevron-down"></i>
-                        </div>
-                        <div class="layer-content">
-                            <p>Asynchronous processing systems that maintain the health and efficiency of the network:</p>
-                            <ul>
-                                <li><strong>Redis Cache/Message Broker:</strong> Fast, in-memory data storage and message passing</li>
-                                <li><strong>Background Tasks:</strong> Scheduled operations like maintenance and cleanup</li>
-                                <li><strong>Health Checks:</strong> Continuous monitoring of agent and service availability</li>
-                                <li><strong>Analytics Workers:</strong> Processing and aggregation of usage metrics</li>
-                                <li><strong>Webhook Workers:</strong> Handling of asynchronous notifications</li>
-                                <li><strong>Scheduled Tasks:</strong> Periodic operations such as verification renewals</li>
-                            </ul>
-                        </div>
-                    </div>
-                    
-                    <div class="layer">
-                        <div class="layer-header">
-                            <h3>3. Integration Interfaces</h3>
-                            <i class="fas fa-chevron-down"></i>
-                        </div>
-                        <div class="layer-content">
-                            <p>Connection points for agents, servers, and client applications:</p>
-                            <ul>
-                                <li><strong>MCP Servers:</strong> Standard MCP-compliant servers that can be integrated into the NANDA ecosystem</li>
-                                <li><strong>Agent Servers:</strong> Specialized servers that host AI agents with specific capabilities</li>
-                                <li><strong>Resource Servers:</strong> Servers that provide access to data, tools, or other resources</li>
-                                <li><strong>Tool Servers:</strong> Servers that offer specific functionalities or utilities to agents</li>
-                                <li><strong>Client Applications:</strong> End-user applications that utilize the NANDA ecosystem</li>
-                                <li><strong>API Clients:</strong> Programmatic interfaces for interacting with NANDA services</li>
-                                <li><strong>Webhook Consumers:</strong> Systems that receive and act on NANDA event notifications</li>
-                            </ul>
-                        </div>
-                    </div>
-                </div>
-                
-                <h2 id="key-flows">Key Information Flows</h2>
-                <p>The NANDA architecture enables several essential workflows:</p>
-                
-                <ol class="flow-steps">
-                    <li>
-                        <h4>Server Registration</h4>
-                        <p>MCP servers register with NANDA, providing metadata and capabilities</p>
-                    </li>
-                    <li>
-                        <h4>Verification</h4>
-                        <p>NANDA verifies server ownership and capabilities through various validation methods</p>
-                    </li>
-                    <li>
-                        <h4>Discovery</h4>
-                        <p>Agents query the registry to find servers with desired capabilities</p>
-                    </li>
-                    <li>
-                        <h4>Connection</h4>
-                        <p>Agents connect to servers using the appropriate protocols (A2A or A2I)</p>
-                    </li>
-                    <li>
-                        <h4>Webhooks</h4>
-                        <p>NANDA sends event notifications to registered webhook endpoints</p>
-                    </li>
-                    <li>
-                        <h4>Analytics</h4>
-                        <p>Usage data is collected and processed to maintain reputation metrics</p>
-                    </li>
-                </ol>
+                <p>The architecture is designed to avoid single points of failure or control. Even the registry services can be implemented in a distributed fashion, with multiple instances operating across different domains or organizations while still maintaining interoperability. This approach allows for community-specific or organization-specific subnetworks that can still communicate with the broader NANDA ecosystem when needed.</p>
                 
                 <h2 id="implementation">Implementation Guidelines</h2>
                 <p>When implementing the NANDA Architecture, consider the following guidelines:</p>

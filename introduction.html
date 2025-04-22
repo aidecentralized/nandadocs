@@ -25,7 +25,6 @@
                         <li><a href="registry.html">Registry</a></li>
                         <li><a href="sdk.html">SDK</a></li>
                         <li><a href="host.html">Host</a></li>
-                        <li><a href="hack.html">Hack</a></li>
                         <li><a href="faq.html">FAQ</a></li>
                         <li><a href="https://github.com/aidecentralized/nanda-servers" target="_blank">GitHub</a></li>
                     </ul>
@@ -61,120 +60,126 @@
                 </div>
                 
                 <h2 id="what-is-nanda">What is NANDA?</h2>
-                <p>NANDA (Networked AI Agents and Decentralized Architecture) is an open protocol that extends the <a href="https://modelcontextprotocol.io/introduction" target="_blank">Model Context Protocol (MCP)</a> from Anthropic to support large-scale, decentralized AI agent networks. While MCP provides excellent standards for individual LLM interactions with tools and resources, NANDA addresses the next evolution: enabling millions of distributed agents to discover, interact, and transact with each other securely.</p>
+                <p>NANDA (Networked AI Agents and Decentralized Architecture) is an open protocol that extends the <a href="https://modelcontextprotocol.io/introduction" target="_blank">Model Context Protocol (MCP)</a> beyond single-agent scenarios to support large-scale, decentralized networks of AI agents. Think of how the internet connects millions of computers – NANDA aims to do the same for AI agents.</p>
+                
+                <p>MCP provides a "USB-C standard" for connecting an AI model to tools and data; NANDA builds on this foundation to allow many independent AI agents and services to plug into each other securely and autonomously. While MCP provides excellent standards for individual LLM interactions with tools and resources, NANDA addresses the next evolution: enabling millions of distributed agents to discover, interact, and transact with each other securely.</p>
                 
                 <div class="info-box">
                     <i class="fas fa-info-circle"></i>
                     <div>
-                        <p>NANDA is designed to be backward compatible with MCP, allowing existing MCP-compliant applications to participate in the broader NANDA ecosystem with minimal changes.</p>
+                        <p>NANDA is backward-compatible with MCP. Any tool or resource that works with MCP can join a NANDA network with minimal changes, preserving existing functionality while gaining networking capabilities. This means developers and organizations can incrementally adopt NANDA without rebuilding from scratch.</p>
                     </div>
                 </div>
                 
                 <h2 id="why-nanda">Why NANDA?</h2>
-                <p>As the agentic AI landscape expands, we are moving toward a future with potentially millions of specialized AI agents and services operating across distributed networks. This shift presents several critical challenges:</p>
+                <p>As AI capabilities grow, we envision a future with potentially millions of specialized AI agents (for finance, health, education, etc.) operating across organizations and devices. However, achieving this vision raises critical challenges:</p>
                 
                 <ul>
-                    <li><strong>Discovery Challenge:</strong> How do agents find relevant services in a vast, constantly evolving network?</li>
-                    <li><strong>Commerce Challenge:</strong> How can agents transact and exchange value securely and efficiently?</li>
-                    <li><strong>Trust Challenge:</strong> How do we ensure secure authentication and maintain reliable reputation systems?</li>
-                    <li><strong>Interoperability Challenge:</strong> How do we enable seamless communication between diverse agent systems?</li>
+                    <li><strong>Discovery Challenge:</strong> How do agents find relevant services or peers in a vast, constantly changing network?</li>
+                    <li><strong>Commerce Challenge:</strong> How can agents negotiate services and exchange value or payments securely and automatically?</li>
+                    <li><strong>Trust Challenge:</strong> How do we establish secure authentication for agents and maintain a reliable reputation system in a trustless environment?</li>
+                    <li><strong>Interoperability Challenge:</strong> How can diverse agents (with different platforms or vendors) communicate seamlessly?</li>
                 </ul>
                 
-                <p>NANDA addresses these challenges by building upon MCP's solid foundation and adding the necessary infrastructure for decentralized, agent-to-agent interactions at scale.</p>
+                <p>NANDA addresses these challenges by building on MCP's solid foundation for tool integration and adding the missing pieces for decentralized, agent-to-agent interaction at scale. The protocol introduces discovery directories, economic negotiation frameworks, and identity/reputation systems so that agents can autonomously find each other, do business, and trust the outcomes.</p>
                 
                 <h2 id="key-pillars">Key Pillars of NANDA</h2>
-                <p>NANDA is built around four core pillars that enable its functionality and value:</p>
+                <p>NANDA's design is guided by four core pillars, each tackling an aspect of the challenges above:</p>
                 
                 <div class="pillar-cards">
                     <div class="pillar-card">
                         <h3>Discovery</h3>
-                        <p>NANDA provides robust mechanisms for agents to discover each other across distributed networks. This includes:</p>
+                        <p>Robust mechanisms for agents to discover each other across distributed networks. This includes:</p>
                         <ul>
-                            <li>Registry-based discovery for public and private networks</li>
-                            <li>Capability-based agent search and matchmaking</li>
-                            <li>Decentralized service advertising and discovery protocols</li>
+                            <li>Registry-based lookups (for public or private agent directories)</li>
+                            <li>Capability-based search and matchmaking (find an agent by what it can do)</li>
+                            <li>Peer-to-peer service advertising protocols</li>
                         </ul>
                     </div>
                     
                     <div class="pillar-card">
                         <h3>Commerce</h3>
-                        <p>NANDA enables secure, automated transactions between agents:</p>
+                        <p>Built-in support for agents to conduct transactions:</p>
                         <ul>
-                            <li>Standardized service negotiation protocols</li>
-                            <li>Flexible payment and value exchange mechanisms</li>
-                            <li>Contract enforcement through verification services</li>
-                            <li>Resource allocation and optimization for multi-agent tasks</li>
+                            <li>Standardized service negotiation steps</li>
+                            <li>Flexible payment or value exchange mechanisms</li>
+                            <li>Contract enforcement via verification services</li>
+                            <li>Resource allocation strategies for multi-agent workflows</li>
                         </ul>
                     </div>
                     
                     <div class="pillar-card">
                         <h3>Authentication</h3>
-                        <p>NANDA provides comprehensive security features:</p>
+                        <p>Comprehensive security features for identity and access control:</p>
                         <ul>
-                            <li>Cryptographic identity verification for agents and services</li>
-                            <li>Permission and access control frameworks</li>
-                            <li>Security audit trails and compliance mechanisms</li>
-                            <li>Trust establishment protocols for first-time interactions</li>
+                            <li>Cryptographic certificates for agent identification</li>
+                            <li>Fine-grained permission controls</li>
+                            <li>Audit logs for security compliance</li>
+                            <li>Protocols for establishing trust on first contact</li>
                         </ul>
                     </div>
                     
                     <div class="pillar-card">
                         <h3>Reputation</h3>
-                        <p>NANDA includes systems for building and verifying trust:</p>
+                        <p>Systems for building and verifying trust over time:</p>
                         <ul>
-                            <li>Decentralized reputation tracking</li>
-                            <li>Verifiable performance history</li>
-                            <li>Quality of service metrics and monitoring</li>
-                            <li>Incentive mechanisms for reliable service provision</li>
+                            <li>Decentralized reputation records tracking service quality</li>
+                            <li>Verifiable reputation scores or badges</li>
+                            <li>Trust decision frameworks for large, open networks</li>
+                            <li>Performance and reliability metrics</li>
                         </ul>
                     </div>
                 </div>
                 
+                <p>These four pillars work in concert: Discovery finds potential collaborators, Commerce lets them transact, Authentication verifies identities and secures data exchange, and Reputation provides confidence in continued interactions.</p>
+                
                 <h2 id="mcp-relationship">Relationship with Model Context Protocol</h2>
-                <p>NANDA builds upon and extends the <a href="https://modelcontextprotocol.io/introduction" target="_blank">Model Context Protocol (MCP)</a> from Anthropic:</p>
                 
                 <div class="relationship-diagram">
                     <img src="assets/images/NANDA_mcp_relationship.svg" alt="NANDA and MCP Relationship Diagram" />
-                    <p class="caption">NANDA extends MCP to enable agent-to-agent interactions in decentralized networks</p>
+                    <p class="caption">NANDA extends MCP to enable agent-to-agent interactions in decentralized networks. Red components indicate NANDA-specific additions (Agent/Tool servers and Registry services), while black components are from MCP. Solid lines show agent-to-agent (A2A) communication; dashed lines show agent-to-infrastructure (A2I) communication through the registry.</p>
                 </div>
                 
-                <p>MCP provides an excellent protocol for LLM interfaces to interact with tools and resources, but it was primarily designed for single-agent interactions. NANDA extends this foundation to support multi-agent systems where:</p>
+                <p>NANDA is built on the idea of extending MCP rather than reinventing it. MCP established a standard JSON-based RPC format for an LLM (as a client) to call tools or retrieve data from a server. NANDA generalizes this model to many clients and many servers (M+N), and introduces a Registry as an infrastructure component for coordination:</p>
                 
                 <ul>
-                    <li>Agents can dynamically discover other agents and services</li>
-                    <li>Agents can engage in peer-to-peer transactions and collaborations</li>
-                    <li>Trust relationships can be established and maintained across interactions</li>
-                    <li>Complex workflows can be distributed across specialized agent networks</li>
+                    <li>An MCP Client (e.g. an LLM application) becomes a NANDA Client when it speaks the extended protocol, allowing it to not only call tools but also connect to other agents.</li>
+                    <li>New types of NANDA Servers are introduced: an agent can offer its capabilities as a service (an Agent Server), or expose tools/data in a standardized way (a Tool Server), all registered in the network.</li>
+                    <li>The NANDA Registry acts as a decentralized directory and trust broker. MCP did not have a global discovery mechanism – NANDA's registry fills that role by listing available servers (MCP or NANDA), verifying their credentials, and enabling dynamic lookup.</li>
                 </ul>
                 
+                <p>In practice, this means an LLM agent using NANDA can call an existing MCP tool server or another agent's API with equal ease. MCP's request/response format and JSON schema are reused in NANDA, ensuring familiarity. What NANDA adds is the ability for agents to find each other and communicate peer-to-peer without manual configuration of each connection.</p>
+                
                 <h2 id="use-cases">Use Cases</h2>
-                <p>NANDA enables a wide range of applications that weren't possible with previous protocols:</p>
+                <p>By enabling open discovery, secure interactions, and automated transactions, NANDA opens the door to applications that were impractical in siloed AI systems:</p>
                 
                 <div class="use-case-grid">
                     <div class="use-case">
                         <i class="fas fa-store"></i>
                         <h3>AI Service Marketplaces</h3>
-                        <p>Create decentralized marketplaces where specialized AI agents can offer services to other agents or humans, with built-in discovery, negotiation, and payment mechanisms.</p>
+                        <p>Create decentralized marketplaces where specialized AI agents offer services to other agents or human users. For example, one agent might specialize in legal research, another in financial analysis – using NANDA, they can advertise their services, negotiate pricing, and collaborate on a client's request. Discovery and payment are handled in-protocol, allowing a vibrant "service economy" of AI.</p>
                     </div>
                     
                     <div class="use-case">
-                        <i class="fas fa-brain"></i>
-                        <h3>Collaborative Problem Solving</h3>
-                        <p>Enable teams of specialized agents to work together on complex problems, dynamically organizing themselves based on capabilities and reputations.</p>
+                        <i class="fas fa-id-card"></i>
+                        <h3>Self-Sovereign Identity Verification</h3>
+                        <p>Identity agents can issue and verify credentials across organizational boundaries without a central authority. Using NANDA, an agent representing a user can prove facts about them (citizenship, certifications, etc.) to another agent (e.g. a service provider) via verifiable credentials. The authentication and verification services built into NANDA's registry ensure that only legitimate information is shared.</p>
                     </div>
                     
                     <div class="use-case">
-                        <i class="fas fa-shield-alt"></i>
-                        <h3>Trusted Agent Networks</h3>
-                        <p>Build private networks of verified agents with established reputation histories for sensitive enterprise applications requiring high security.</p>
+                        <i class="fas fa-chart-bar"></i>
+                        <h3>Collaborative Data Analytics</h3>
+                        <p>Multiple AI agents, possibly owned by different stakeholders, can form ad-hoc networks to analyze data together without exposing raw data. For instance, regulatory compliance agents, market analysts, and fraud detection agents could share insights from blockchain data in real-time. NANDA's decentralized discovery allows each party to deploy specialized agents that find each other and communicate.</p>
                     </div>
                     
                     <div class="use-case">
-                        <i class="fas fa-cogs"></i>
-                        <h3>Autonomous Agent Ecosystems</h3>
-                        <p>Create self-organizing systems of autonomous agents that can adapt to changing conditions by discovering and integrating new capabilities as needed.</p>
+                        <i class="fas fa-truck"></i>
+                        <h3>Cross-Organization Logistics Optimization</h3>
+                        <p>Logistics agents from different companies (shipping, warehousing, drone fleets) can coordinate plans through a NANDA network. Even if they don't fully trust each other, they use NANDA's negotiation and trust protocols to agree on delivery hand-offs, share limited data (protected by authentication), and respond to real-time events (via direct agent-to-agent messages).</p>
                     </div>
                 </div>
+                
+                <p>These are just a few examples. From education (networked tutoring agents collaborating on personalized learning) to healthcare (agents coordinating patient care across providers) and beyond, the possibilities grow as more agents join the NANDA ecosystem. The common thread is that NANDA enables open collaboration among AI systems that were previously isolated, by providing the protocols for them to find, trust, and work with each other.</p>
                 
                 <!-- <h2 id="getting-started">Getting Started</h2>
                 <p>Ready to start building with NANDA? Here's how to get started:</p>
