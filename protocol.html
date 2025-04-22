@@ -6,7 +6,6 @@
     <title>Protocol Specification - NANDA Protocol</title>
     <link rel="stylesheet" href="assets/css/styles.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap">
 </head>
 <body>
     <header>
@@ -15,7 +14,7 @@
                 <div class="logo">
                     <a href="index.html">
                         <h1>NANDA</h1>
-                        <p>Networked Agents And Decentralized AI</p>
+                        <p>Networked AI Agents and Decentralized Architecture</p>
                     </a>
                 </div>
                 <nav>
@@ -35,27 +34,26 @@
         </div>
     </header>
 
-    <div class="hero-section">
-        <div class="container">
-            <h1>NANDA Protocol</h1>
-            <p class="subtitle">An open protocol extending MCP for a decentralized network of AI agents, resources, and tools</p>
-            <div class="cta-buttons">
-                <a href="#features" class="btn primary">Explore Features</a>
-                <a href="https://github.com/aidecentralized/nanda-servers" class="btn secondary">View on GitHub</a>
-            </div>
-        </div>
-    </div>
-
     <div class="page-content">
         <div class="container">
-            <div class="protocol-content">
-                <div class="protocol-introduction">
-                    <h2>The NANDA Protocol Specification</h2>
-                    <div class="status-badge">
-                        <i class="fas fa-code-branch"></i>
-                        <span>Version 1.0 Alpha</span>
-                    </div>
-                    <p>The NANDA Protocol provides a comprehensive framework for enabling decentralized AI agent networks to discover, authenticate, transact, and build reputation with each other. Built as an extension to the Model Context Protocol (MCP), NANDA adds the infrastructure needed for large-scale agent ecosystems.</p>
+            <div class="sidebar">
+                <h3>On This Page</h3>
+                <ul>
+                    <li><a href="#overview">Protocol Overview</a></li>
+                    <li><a href="#features">Key Features</a></li>
+                    <li><a href="#documentation">Documentation Status</a></li>
+                    <li><a href="#collaboration">Join Development</a></li>
+                </ul>
+            </div>
+            
+            <div class="main-content">
+                <h1 id="overview">NANDA Protocol</h1>
+                
+                <p class="intro-text">An open protocol extending MCP for a decentralized network of AI agents, resources, and tools. The NANDA Protocol provides a comprehensive framework for enabling decentralized AI agent networks to discover, authenticate, transact, and build reputation with each other. Built as an extension to the Model Context Protocol (MCP), NANDA adds the infrastructure needed for large-scale agent ecosystems.</p>
+
+                <div class="status-badge">
+                    <i class="fas fa-code-branch"></i>
+                    <span>Version 1.0 Alpha</span>
                 </div>
 
                 <div class="feature-grid" id="features">
@@ -92,7 +90,7 @@
                     </div>
                 </div>
 
-                <div class="documentation-section">
+                <div class="documentation-section" id="documentation">
                     <h2>Documentation Status</h2>
                     <p>We're currently finalizing the NANDA Protocol Specification. The complete documentation will be available shortly. Here's what to expect:</p>
                     
@@ -137,7 +135,7 @@
                     </div>
                 </div>
 
-                <div class="collaboration-section">
+                <div class="collaboration-section" id="collaboration">
                     <h2>Join the Development</h2>
                     <p>NANDA is an open, community-driven protocol. We welcome contributions from researchers, developers, and organizations interested in advancing decentralized AI infrastructure.</p>
                     
@@ -156,7 +154,7 @@
             <div class="footer-content">
                 <div class="footer-logo">
                     <h2>NANDA</h2>
-                    <p>Networked Agents And Decentralized AI</p>
+                    <p>Networked AI Agents and Decentralized Architecture</p>
                 </div>
                 <div class="footer-links">
                     <div class="footer-column">
@@ -191,349 +189,6 @@
             </div>
         </div>
     </footer>
-
-    <style>
-        :root {
-            --mit-red: #A31F34;
-            --mit-red-dark: #8b1a2d;
-            --mit-light-gray: #F2F2F2;
-            --mit-dark-gray: #333333;
-            --mit-black: #000000;
-            --mit-white: #FFFFFF;
-        }
-        
-        body {
-            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
-            line-height: 1.6;
-            color: var(--mit-dark-gray);
-            background-color: var(--mit-white);
-        }
-        
-        .hero-section {
-            background-color: var(--mit-red);
-            color: white;
-            padding: 5rem 0;
-            text-align: center;
-            position: relative;
-        }
-        
-        .hero-section::after {
-            content: '';
-            position: absolute;
-            bottom: 0;
-            left: 0;
-            right: 0;
-            height: 4rem;
-            background: linear-gradient(to bottom right, var(--mit-red) 0%, var(--mit-red) 50%, transparent 50%);
-        }
-        
-        .hero-section h1 {
-            font-size: 3.5rem;
-            font-weight: 700;
-            margin-bottom: 1rem;
-            color: white;
-            letter-spacing: -0.03em;
-        }
-        
-        .subtitle {
-            font-size: 1.25rem;
-            margin-bottom: 2rem;
-            max-width: 800px;
-            margin-left: auto;
-            margin-right: auto;
-            opacity: 0.9;
-        }
-        
-        .cta-buttons {
-            display: flex;
-            justify-content: center;
-            gap: 1rem;
-            margin-top: 2.5rem;
-        }
-        
-        .btn {
-            display: inline-block;
-            padding: 0.75rem 1.5rem;
-            font-weight: 600;
-            text-align: center;
-            border-radius: 6px;
-            cursor: pointer;
-            transition: all 0.2s ease;
-            text-decoration: none;
-        }
-        
-        .btn.primary {
-            background-color: white;
-            color: var(--mit-red);
-            border: 2px solid white;
-        }
-        
-        .btn.primary:hover {
-            background-color: rgba(255, 255, 255, 0.9);
-        }
-        
-        .btn.secondary {
-            background-color: transparent;
-            color: white;
-            border: 2px solid rgba(255, 255, 255, 0.7);
-        }
-        
-        .btn.secondary:hover {
-            background-color: rgba(255, 255, 255, 0.1);
-            border-color: white;
-        }
-        
-        .protocol-content {
-            max-width: 1000px;
-            margin: 0 auto;
-            padding: 4rem 0;
-        }
-        
-        .protocol-introduction {
-            text-align: center;
-            margin-bottom: 3rem;
-        }
-        
-        .protocol-introduction h2 {
-            font-size: 2.5rem;
-            margin-bottom: 1rem;
-            color: var(--mit-red);
-        }
-        
-        .protocol-introduction p {
-            font-size: 1.2rem;
-            max-width: 800px;
-            margin: 0 auto;
-            color: var(--mit-dark-gray);
-        }
-        
-        .status-badge {
-            display: inline-flex;
-            align-items: center;
-            background-color: rgba(163, 31, 52, 0.1);
-            color: var(--mit-red);
-            padding: 0.5rem 1rem;
-            border-radius: 30px;
-            font-weight: 600;
-            margin: 1rem 0 2rem;
-        }
-        
-        .status-badge i {
-            margin-right: 8px;
-        }
-        
-        .feature-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 2rem;
-            margin: 3rem 0;
-        }
-        
-        .feature-card {
-            background-color: white;
-            border-radius: 10px;
-            padding: 2rem;
-            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
-            transition: all 0.3s ease;
-            border: 1px solid #eee;
-            text-align: center;
-        }
-        
-        .feature-card:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
-            border-color: var(--mit-red);
-        }
-        
-        .feature-icon {
-            width: 60px;
-            height: 60px;
-            border-radius: 50%;
-            background-color: var(--mit-red);
-            color: white;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            margin: 0 auto 1.5rem;
-            font-size: 1.5rem;
-        }
-        
-        .feature-card h3 {
-            font-size: 1.25rem;
-            margin-bottom: 1rem;
-            color: var(--mit-red);
-        }
-        
-        .feature-card p {
-            color: var(--mit-dark-gray);
-            line-height: 1.6;
-        }
-        
-        .documentation-section, .collaboration-section {
-            margin: 5rem 0;
-        }
-        
-        .documentation-section h2, .collaboration-section h2 {
-            text-align: center;
-            font-size: 2rem;
-            color: var(--mit-red);
-            margin-bottom: 2rem;
-        }
-        
-        .documentation-section p, .collaboration-section p {
-            text-align: center;
-            max-width: 800px;
-            margin: 0 auto 2rem;
-            font-size: 1.1rem;
-        }
-        
-        .spec-checklist {
-            max-width: 800px;
-            margin: 0 auto;
-            background-color: #f9f9f9;
-            border-radius: 10px;
-            padding: 2rem;
-        }
-        
-        .spec-checklist ul {
-            list-style: none;
-            padding: 0;
-        }
-        
-        .spec-checklist li {
-            display: flex;
-            align-items: flex-start;
-            margin-bottom: 1.5rem;
-            padding-bottom: 1.5rem;
-            border-bottom: 1px solid #eee;
-        }
-        
-        .spec-checklist li:last-child {
-            margin-bottom: 0;
-            padding-bottom: 0;
-            border-bottom: none;
-        }
-        
-        .spec-checklist i {
-            color: var(--mit-red);
-            font-size: 1.25rem;
-            margin-right: 1rem;
-            margin-top: 0.25rem;
-            flex-shrink: 0;
-        }
-        
-        .spec-checklist h4 {
-            font-size: 1.1rem;
-            margin: 0 0 0.25rem;
-            color: var(--mit-dark-gray);
-        }
-        
-        .spec-checklist p {
-            margin: 0;
-            text-align: left;
-            font-size: 0.95rem;
-            color: #666;
-        }
-        
-        .action-buttons {
-            display: flex;
-            justify-content: center;
-            gap: 1rem;
-            flex-wrap: wrap;
-        }
-        
-        .action-buttons .btn {
-            margin: 0.5rem;
-        }
-        
-        .action-buttons .btn.primary {
-            background-color: var(--mit-red);
-            color: white;
-            border: 2px solid var(--mit-red);
-        }
-        
-        .action-buttons .btn.primary:hover {
-            background-color: var(--mit-red-dark);
-            border-color: var(--mit-red-dark);
-        }
-        
-        .action-buttons .btn.secondary {
-            background-color: transparent;
-            color: var(--mit-red);
-            border: 2px solid var(--mit-red);
-        }
-        
-        .action-buttons .btn.secondary:hover {
-            background-color: rgba(163, 31, 52, 0.05);
-        }
-        
-        /* Override header styles */
-        header {
-            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
-        }
-        
-        .logo h1 {
-            color: var(--mit-red);
-        }
-        
-        nav a:hover {
-            background-color: rgba(163, 31, 52, 0.1);
-            color: var(--mit-red);
-        }
-        
-        nav li.active a {
-            background-color: var(--mit-red);
-            color: white;
-        }
-        
-        /* Footer styles */
-        footer {
-            background-color: var(--mit-dark-gray);
-            color: white;
-            padding: 4rem 0 2rem;
-            margin-top: 4rem;
-        }
-        
-        .footer-logo h2 {
-            color: white;
-        }
-        
-        .footer-column h3 {
-            color: rgba(255, 255, 255, 0.8);
-        }
-        
-        .footer-column a {
-            color: rgba(255, 255, 255, 0.7);
-        }
-        
-        .footer-column a:hover {
-            color: white;
-        }
-        
-        /* Mobile responsive styles */
-        @media (max-width: 768px) {
-            .hero-section h1 {
-                font-size: 2.5rem;
-            }
-            
-            .feature-grid {
-                grid-template-columns: 1fr;
-            }
-            
-            .action-buttons {
-                flex-direction: column;
-                align-items: center;
-            }
-            
-            .action-buttons .btn {
-                width: 100%;
-            }
-            
-            .spec-checklist {
-                padding: 1.5rem;
-            }
-        }
-    </style>
 
     <script src="assets/js/main.js"></script>
 </body>
